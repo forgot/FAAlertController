@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6VU-Yo-F4u">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Initial View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="InitialViewController" customModule="FAAlertControllerExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="h7D-y2-AIh">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vrj-HC-uAO">
+                                        <state key="normal" title="Default"/>
+                                        <connections>
+                                            <segue destination="ZWL-rY-SkG" kind="show" id="3VT-Yi-M7P"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1P-Yd-6BP">
+                                        <state key="normal" title="Dark"/>
+                                        <connections>
+                                            <segue destination="I70-yW-czg" kind="show" id="x8Y-eo-hDd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKR-gt-Kai">
+                                        <state key="normal" title="Custom"/>
+                                        <connections>
+                                            <segue destination="u80-U1-nZ2" kind="show" id="Xt4-tB-EcT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="h7D-y2-AIh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="1rP-Wk-xN7"/>
+                            <constraint firstItem="h7D-y2-AIh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XWv-Lt-QFi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="OKI-5R-E0I"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1097" y="793"/>
+        </scene>
+        <!--Dark Style View Controller-->
+        <scene sceneID="YO5-qv-wOS">
+            <objects>
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="I70-yW-czg" customClass="DarkStyleViewController" customModule="FAAlertControllerExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O1m-3H-z5j"/>
+                        <viewControllerLayoutGuide type="bottom" id="oXm-KQ-RoC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fgY-Hw-q43">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Alarm" translatesAutoresizingMaskIntoConstraints="NO" id="401-yj-LQ0"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="401-yj-LQ0" firstAttribute="centerX" secondItem="fgY-Hw-q43" secondAttribute="centerX" id="6gk-b1-MlV"/>
+                            <constraint firstItem="401-yj-LQ0" firstAttribute="centerY" secondItem="fgY-Hw-q43" secondAttribute="centerY" id="M6Q-pZ-RfJ"/>
+                            <constraint firstItem="401-yj-LQ0" firstAttribute="height" secondItem="fgY-Hw-q43" secondAttribute="height" id="kvA-Dw-H56"/>
+                            <constraint firstItem="401-yj-LQ0" firstAttribute="width" secondItem="fgY-Hw-q43" secondAttribute="width" id="zzq-F9-WHO"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="akL-js-DO8"/>
+                        <barButtonItem title="UIAlert" id="515-aR-qyk">
+                            <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="68S-W9-lSt"/>
+                        <barButtonItem title="FAAlert" id="18k-gp-85G">
+                            <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="0B4-yJ-ehd"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="9lO-3N-sTm">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="8jK-cG-r85">
+                            <rect key="frame" x="99" y="7" width="177" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Alert"/>
+                                <segment title="ActionSheet"/>
+                            </segments>
+                            <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="togglePreferredTypeWithSender:" destination="I70-yW-czg" eventType="primaryActionTriggered" id="uKc-Vu-o2t"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
+                    <connections>
+                        <outlet property="faControllerVersion" destination="18k-gp-85G" id="6rT-hm-IUR"/>
+                        <outlet property="uiControllerVersion" destination="515-aR-qyk" id="cKJ-5h-7Zk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BlF-3y-9Cz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1929" y="793"/>
+        </scene>
+        <!--Custom Style View Controller-->
+        <scene sceneID="jeX-kH-sQu">
+            <objects>
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="u80-U1-nZ2" customClass="CustomStyleViewController" customModule="FAAlertControllerExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yUd-gZ-OwS"/>
+                        <viewControllerLayoutGuide type="bottom" id="yVO-6f-6m9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7Ta-8s-Mj0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Random" translatesAutoresizingMaskIntoConstraints="NO" id="TmK-oB-Eag"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TmK-oB-Eag" firstAttribute="width" secondItem="7Ta-8s-Mj0" secondAttribute="width" id="aI5-7f-7Rk"/>
+                            <constraint firstItem="TmK-oB-Eag" firstAttribute="centerX" secondItem="7Ta-8s-Mj0" secondAttribute="centerX" id="eSV-59-kiG"/>
+                            <constraint firstItem="TmK-oB-Eag" firstAttribute="centerY" secondItem="7Ta-8s-Mj0" secondAttribute="centerY" id="g9l-s7-Mq0"/>
+                            <constraint firstItem="TmK-oB-Eag" firstAttribute="height" secondItem="7Ta-8s-Mj0" secondAttribute="height" id="sCY-4N-rDt"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Lfb-WA-z4v"/>
+                        <barButtonItem title="UIAlert" id="suB-7I-50J"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="aHp-yG-MEg"/>
+                        <barButtonItem title="FAAlert" id="O2n-Rl-ad4"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="juK-DG-whb"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="fYH-7k-0pU">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="b4I-hE-fT2">
+                            <rect key="frame" x="99" y="7" width="177" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Alert"/>
+                                <segment title="ActionSheet"/>
+                            </segments>
+                            <connections>
+                                <action selector="togglePreferredTypeWithSender:" destination="u80-U1-nZ2" eventType="primaryActionTriggered" id="ZSj-cM-oBU"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="faControllerVersion" destination="O2n-Rl-ad4" id="gDx-0I-w2z"/>
+                        <outlet property="uiControllerVersion" destination="suB-7I-50J" id="Xnq-vG-OZY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PpW-Oh-mER" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1929" y="1540"/>
+        </scene>
+        <!--Default Style View Controller-->
+        <scene sceneID="I8Q-UT-mzC">
+            <objects>
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZWL-rY-SkG" customClass="DefaultStyleViewController" customModule="FAAlertControllerExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Cd-nS-jSD"/>
+                        <viewControllerLayoutGuide type="bottom" id="d91-q4-WYe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O4R-sy-PVT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Settings" translatesAutoresizingMaskIntoConstraints="NO" id="AOp-2D-Dzw"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AOp-2D-Dzw" firstAttribute="centerY" secondItem="O4R-sy-PVT" secondAttribute="centerY" id="0MT-Cq-Sro"/>
+                            <constraint firstItem="AOp-2D-Dzw" firstAttribute="width" secondItem="O4R-sy-PVT" secondAttribute="width" id="Ast-By-5Zh"/>
+                            <constraint firstItem="AOp-2D-Dzw" firstAttribute="height" secondItem="O4R-sy-PVT" secondAttribute="height" id="VfU-yE-dUy"/>
+                            <constraint firstItem="AOp-2D-Dzw" firstAttribute="centerX" secondItem="O4R-sy-PVT" secondAttribute="centerX" id="xsD-cO-VXi"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="fpq-rg-9Ag"/>
+                        <barButtonItem title="UIAlert" id="WwT-fh-PjH"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="o6A-Ua-roP"/>
+                        <barButtonItem title="FAAlert" id="EUE-KX-R1o"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="TJB-sx-XxU"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="FvP-Nb-X2U">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="3bk-OE-tPj">
+                            <rect key="frame" x="99" y="7" width="177" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Alert"/>
+                                <segment title="ActionSheet"/>
+                            </segments>
+                            <connections>
+                                <action selector="togglePreferredTypeWithSender:" destination="ZWL-rY-SkG" eventType="primaryActionTriggered" id="xa8-ql-jdB"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="faControllerVersion" destination="EUE-KX-R1o" id="mAc-dk-syt"/>
+                        <outlet property="uiControllerVersion" destination="WwT-fh-PjH" id="fez-Wj-6Zg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oJ1-Pc-FCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1929" y="50"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TzZ-4V-BOG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6VU-Yo-F4u" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2wB-NU-FzN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="d7A-wX-ieP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UXR-OE-wNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="208.80000000000001" y="792.95352323838085"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Alarm" width="414" height="736"/>
+        <image name="Random" width="375" height="667"/>
+        <image name="Settings" width="414" height="736"/>
+    </resources>
+</document>
