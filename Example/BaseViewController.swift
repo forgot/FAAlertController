@@ -13,10 +13,10 @@ class BaseViewController: UIViewController {
     
     
     var _title: String {
-        return "Hello! This title is longer than the others! Now its even longer! Now its more even longer!"
+        return "Hello! This is where the title goes! Amazing, right?"
     }
     var _message: String {
-        return "This is a message. Not just a sentance that was posing as a message like you've seen before. I won't point fingers though."
+        return "This is a message. You can put lots of words here, and then show them to your users. Its really exciting."
     }
     var _numberOfActions = 4
     var _numberOfTextFields = 2
