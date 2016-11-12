@@ -10,7 +10,7 @@ import UIKit
 
 class FAAlertControllerBackdropView: UIView {
     
-    let backdrop = BlendableBackdropView(frame: .zero, target: nil, blendMode: .overlay)
+    let backdrop = BlendableBackdropView(frame: .zero, target: nil, blendMode: FAAlertControllerAppearanceManager.sharedInstance.backdropBlendMode)
     let effectView = UIVisualEffectView(effect: FAAlertControllerAppearanceManager.sharedInstance.blurEffect)
     
     override init(frame: CGRect) {
@@ -55,7 +55,7 @@ class FAAlertControllerBackdropView: UIView {
 
 class BlendableBackdropView: BlendableView {
     
-    var blendColor: UIColor = .white
+    var blendColor: UIColor = FAAlertControllerAppearanceManager.sharedInstance.backdropColor
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
@@ -73,7 +73,7 @@ class BlendableBackdropView: BlendableView {
         
         // Draw and fill overlay path
         let overlayPath = UIBezierPath(rect: _rect)
-        UIColor.white.setFill()
+        blendColor.setFill()
         overlayPath.fill()
         
         context.restoreGState()

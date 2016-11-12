@@ -23,19 +23,19 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vrj-HC-uAO">
                                         <state key="normal" title="Default"/>
                                         <connections>
-                                            <segue destination="ZWL-rY-SkG" kind="show" id="3VT-Yi-M7P"/>
+                                            <segue destination="ZWL-rY-SkG" kind="show" identifier="default" id="3VT-Yi-M7P"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1P-Yd-6BP">
                                         <state key="normal" title="Dark"/>
                                         <connections>
-                                            <segue destination="I70-yW-czg" kind="show" id="x8Y-eo-hDd"/>
+                                            <segue destination="I70-yW-czg" kind="show" identifier="dark" id="x8Y-eo-hDd"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKR-gt-Kai">
                                         <state key="normal" title="Custom"/>
                                         <connections>
-                                            <segue destination="u80-U1-nZ2" kind="show" id="Xt4-tB-EcT"/>
+                                            <segue destination="u80-U1-nZ2" kind="show" identifier="custom" id="Xt4-tB-EcT"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -154,6 +154,12 @@
                                 <action selector="togglePreferredTypeWithSender:" destination="u80-U1-nZ2" eventType="primaryActionTriggered" id="ZSj-cM-oBU"/>
                             </connections>
                         </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" id="tmM-Qb-kwl">
+                            <color key="tintColor" white="1" alpha="0.14999999999999999" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="fabulousSecretPowers" destination="u80-U1-nZ2" id="e6Z-MA-acG"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -162,6 +168,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PpW-Oh-mER" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="2o6-Gj-GSo" customClass="Suprise" customModule="FAAlertControllerExample" customModuleProvider="target">
+                    <connections>
+                        <outletCollection property="supriseTargets" destination="tmM-Qb-kwl" collectionClass="NSMutableArray" id="jqk-qB-1jh"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="1929" y="1540"/>
         </scene>
@@ -239,8 +250,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Alarm" width="414" height="736"/>
+        <image name="Alarm" width="621" height="1104"/>
         <image name="Random" width="375" height="667"/>
-        <image name="Settings" width="414" height="736"/>
+        <image name="Settings" width="621" height="1104"/>
     </resources>
 </document>

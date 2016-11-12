@@ -20,6 +20,7 @@ class BaseViewController: UIViewController {
     }
     var _numberOfActions = 4
     var _numberOfTextFields = 2
+    var _preferredActionIndex = 1
     
     var alertTitle: String?
     var alertMessage: String?
@@ -30,12 +31,12 @@ class BaseViewController: UIViewController {
     
     var faControllerAppearanceDelegate: FAAlertControllerAppearanceDelegate?
     
-    let action1Title = "Awesome"
-    let action2Title = "Radical"
-    let action3Title = "Cancel"
-    let action4Title = "Destroy"
-    let action5Title = "Foo"
-    let action6Title = "Bar"
+    var action1Title = "Awesome"
+    var action2Title = "Radical"
+    var action3Title = "Cancel"
+    var action4Title = "Destroy"
+    var action5Title = "Foo"
+    var action6Title = "Bar"
     
     var uiAlertAction1: UIAlertAction!
     var uiAlertAction2: UIAlertAction!
@@ -143,8 +144,8 @@ class BaseViewController: UIViewController {
         if _numberOfActions >= 6 {
             alert.addAction(uiAlertAction6)
         }
-        if _numberOfActions >= 2 {
-            alert.preferredAction = uiAlertAction2
+        if _numberOfActions >= _preferredActionIndex + 1 {
+            alert.preferredAction = alert.actions[_preferredActionIndex]
         }
         
         if _numberOfTextFields >= 1 {
@@ -231,8 +232,8 @@ class BaseViewController: UIViewController {
         if _numberOfActions >= 6 {
             alert.addAction(faAlertAction6)
         }
-        if _numberOfActions >= 2 {
-            alert.preferredAction = faAlertAction2
+        if _numberOfActions >= _preferredActionIndex + 1 {
+            alert.preferredAction = alert.actions[_preferredActionIndex]
         }
         
         if _numberOfTextFields >= 1 {

@@ -115,6 +115,14 @@ public class FAAlertController: UIViewController, FAAlertActionDelegate {
         }
     }
     
+    public static var globalAppearanceDelegate: FAAlertControllerAppearanceDelegate? {
+        didSet {
+            FAAlertControllerAppearanceManager.sharedInstance.globalDelegate = globalAppearanceDelegate
+        }
+    }
+    
+    public var completionHandler: (() -> ())?
+    
     // MARK: Internal Properties
     var alertView: FAAlertControllerView?
 
@@ -176,7 +184,12 @@ public class FAAlertController: UIViewController, FAAlertActionDelegate {
     }
     
     @objc func dismiss(_ sender: UITapGestureRecognizer) {
-        dismiss(animated: true) {}
+        dismiss(animated: true) {
+            FAAlertControllerAppearanceManager.sharedInstance.delegate = nil
+            if self.completionHandler != nil {
+                self.completionHandler!()
+            }
+        }
     }
     
     
@@ -203,7 +216,12 @@ public class FAAlertController: UIViewController, FAAlertActionDelegate {
     }
     
     func didPerformAction(_ action: FAAlertAction) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            FAAlertControllerAppearanceManager.sharedInstance.delegate = nil
+            if self.completionHandler != nil {
+                self.completionHandler!()
+            }
+        }
     }
     
     

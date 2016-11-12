@@ -20,12 +20,12 @@ public enum FAAlertActionStyle : Int {
 
 public class FAAlertAction: NSObject {
     
-    var title: String?
-    let style: FAAlertActionStyle
-    var isEnabled = true
+    public var title: String?
+    public let style: FAAlertActionStyle
+    public var handler: ((FAAlertAction) -> ())?
     
     var isPreferredAction = false
-    var handler: ((FAAlertAction) -> ())?
+    var isEnabled = true
     var delegate: FAAlertActionDelegate?
     
     public init(title: String?, style: FAAlertActionStyle, handler: ((FAAlertAction) -> Void)? = nil) {

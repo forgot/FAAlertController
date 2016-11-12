@@ -11,11 +11,17 @@ import UIKit
 public protocol FAAlertControllerAppearanceDelegate {
     
     var buttonTintColor: UIColor { get }
+    var cancelButtonTintColor: UIColor { get }
     var destructiveButtonTintColor: UIColor { get }
     var titleTextColor: UIColor { get }
     var messageTextColor: UIColor { get }
+    
     var blurStyle: UIBlurEffectStyle { get }
-    var blendViewColor: UIColor { get }
+    
+    var backdropColor: UIColor { get }
+    var backdropBlendMode: CGBlendMode { get }
+    
+    var actionSheetCancelBackdropColor: UIColor { get }
     
     var textFieldTextColor: UIColor { get }
     var textFieldPlaceholderTextColor: UIColor { get }
@@ -26,7 +32,7 @@ public protocol FAAlertControllerAppearanceDelegate {
     var separatorSecondaryColor: UIColor { get }
 }
 
-extension FAAlertControllerAppearanceDelegate {
+public extension FAAlertControllerAppearanceDelegate {
     
     
     var appearanceStyle: FAAlertControllerAppearanceStyle {
@@ -46,6 +52,16 @@ extension FAAlertControllerAppearanceDelegate {
             return .white
         }
     }
+    
+    var cancelButtonTintColor: UIColor {
+        switch appearanceStyle {
+        case .default:
+            return UIColor(red:0, green:0.478, blue:1, alpha:1)
+        case .dark:
+            return .white
+        }
+    }
+    
     var destructiveButtonTintColor: UIColor {
         return UIColor(red: 1.0, green: 0.231, blue: 0.188, alpha: 1.0)
     }
@@ -83,8 +99,21 @@ extension FAAlertControllerAppearanceDelegate {
             return .dark
         }
     }
-    var blendViewColor: UIColor {
+    var backdropColor: UIColor {
         return .white
+    }
+    
+    var actionSheetCancelBackdropColor: UIColor {
+        switch appearanceStyle {
+        case .default:
+            return .white
+        case .dark:
+            return UIColor(white: 0.1, alpha: 1.0)
+        }
+    }
+    
+    var backdropBlendMode: CGBlendMode {
+        return .overlay
     }
     
     var textFieldTextColor: UIColor {

@@ -29,6 +29,13 @@ class InitialViewController: UIViewController {
         navigationController?.navigationBar.barStyle = .default
         navigationController?.isToolbarHidden = true
         navigationController?.toolbar.barStyle = .default
+        self.navigationController?.navigationBar.tintColor = UIColor(red:0, green:0.478, blue:1, alpha:1)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "dark" {
+            self.navigationController?.navigationBar.tintColor = .orange
+        }
     }
     
 }
