@@ -86,6 +86,7 @@ class FAAlertActionView: UIView {
                 let _font = UIFont.preferredFont(forTextStyle: UIFontTextStyle("CTFontEmphasizedUsage"))
                 font = _font.withSize(20)
             }
+            label.textColor = FAAlertControllerAppearanceManager.sharedInstance.cancelButtonTintColor
         case .destructive:
             switch FAAlertControllerAppearanceManager.sharedInstance.preferredStyle {
             case .alert:
@@ -94,7 +95,7 @@ class FAAlertActionView: UIView {
                 let _font = UIFont.preferredFont(forTextStyle: UIFontTextStyle("CTFontRegularUsage"))
                 font = _font.withSize(20)
             }
-            label.textColor = UIColor(red: 1.0, green: 0.231, blue: 0.188, alpha: 1.0)
+            label.textColor = FAAlertControllerAppearanceManager.sharedInstance.destructiveButtonTintColor
         }
         
         label.font = font

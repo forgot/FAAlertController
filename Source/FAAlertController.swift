@@ -115,6 +115,11 @@ public class FAAlertController: UIViewController, FAAlertActionDelegate {
         }
     }
     
+    public static var globalAppearanceDelegate: FAAlertControllerAppearanceDelegate? {
+        didSet {
+            FAAlertControllerAppearanceManager.sharedInstance.globalDelegate = globalAppearanceDelegate
+        }
+    }
     // MARK: Internal Properties
     var alertView: FAAlertControllerView?
 

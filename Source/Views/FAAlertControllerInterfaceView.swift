@@ -45,21 +45,13 @@ class FAAlertControllerInterfaceView: UIView {
         
         if isBackdropViewHidden {
             let view = UIView(frame: bounds)
-            view.backgroundColor = .white
-            
-            if FAAlertControllerAppearanceManager.sharedInstance.appearanceStyle == .default {
-                view.backgroundColor = .white
-            } else {
-                view.backgroundColor = UIColor(white: 0.1, alpha: 1.0)
-            }
-            
+            view.backgroundColor = FAAlertControllerAppearanceManager.sharedInstance.actionSheetCancelBackdropColor
             view.translatesAutoresizingMaskIntoConstraints = false
             addSubview(view)
             view.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
             view.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
             view.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
             view.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-
         } else {
             backdropView = FAAlertControllerBackdropView(frame: bounds)
             backdropView!.translatesAutoresizingMaskIntoConstraints = false
