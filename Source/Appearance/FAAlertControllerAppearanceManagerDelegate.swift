@@ -32,7 +32,7 @@ public protocol FAAlertControllerAppearanceDelegate {
     var separatorSecondaryColor: UIColor { get }
 }
 
-extension FAAlertControllerAppearanceDelegate {
+public extension FAAlertControllerAppearanceDelegate {
     
     
     var appearanceStyle: FAAlertControllerAppearanceStyle {
