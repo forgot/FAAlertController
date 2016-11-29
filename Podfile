@@ -11,5 +11,5 @@ project 'FAAlertControllerExample.xcodeproj'
 
 target :FAAlertControllerExample do
 project 'FAAlertControllerExample'
-pod 'Reveal-SDK', '~> 4', :configuration => 'Debug'
+pod 'Reveal-SDK', :configuration => 'Debug'
 end

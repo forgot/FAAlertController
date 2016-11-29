@@ -2,13 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Podfile"
-      assignedFileDataType = "public.ruby-script">
+      location = "group:Podfile">
    </FileRef>
    <FileRef
       location = "group:FAAlertControllerExample.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:FAAlertController.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
