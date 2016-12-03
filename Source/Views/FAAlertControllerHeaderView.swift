@@ -126,11 +126,25 @@ class FAAlertControllerHeaderView: UIScrollView {
         translatesAutoresizingMaskIntoConstraints = false
         widthAnchor.constraint(equalToConstant: _maxWidth).isActive = true
         
+        let contentView = UIView(frame: .zero)
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(contentView)
+        contentView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        contentView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        contentView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        contentView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        contentView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        
         layoutView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(layoutView)
+        
+        contentView.addSubview(layoutView)
+        
         let constraint = heightAnchor.constraint(equalTo: layoutView.heightAnchor)
         constraint.priority = 750
         constraint.isActive = true
+        
         layoutView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         layoutView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
         layoutView.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -152,20 +166,20 @@ class FAAlertControllerHeaderView: UIScrollView {
     }
     
     override func layoutSubviews() {
-        if gradientView == nil {
-            gradientView = FAAlertControllerGradientView(frame: CGRect(x: 0, y: frame.maxY - 2, width: frame.width, height: 2))
-            addSubview(gradientView!)
-            gradientView?.alpha = 0.0
-        }
+//        if gradientView == nil {
+//            gradientView = FAAlertControllerGradientView(frame: CGRect(x: 0, y: frame.maxY - 2, width: frame.width, height: 2))
+//            addSubview(gradientView!)
+//            gradientView?.alpha = 0.0
+//        }
         super.layoutSubviews()
-        contentSize = CGSize(width: frame.width, height: layoutView.frame.height)
-        if layoutView.frame.height > frame.height {
-            gradientView?.alpha = 1.0
-        } else {
-            gradientView?.alpha = 0.0
-            gradientView!.removeFromSuperview()
-            gradientView = nil
-        }
+//        contentSize = CGSize(width: frame.width, height: layoutView.frame.height)
+//        if layoutView.frame.height > frame.height {
+//            gradientView?.alpha = 1.0
+//        } else {
+//            gradientView?.alpha = 0.0
+//            gradientView!.removeFromSuperview()
+//            gradientView = nil
+//        }
     }
     
     override func updateConstraints() {
