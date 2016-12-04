@@ -48,6 +48,7 @@ class FAAlertControllerHeaderView: UIScrollView {
     var title: String?
     var message: String?
     var items: [Pickable]?
+    var pickerDelegate: FAAlertControllerDelegate?
     var textFields: [UITextField]?
     var stackViewSpacing: CGFloat {
         switch FAAlertControllerAppearanceManager.sharedInstance.preferredStyle {

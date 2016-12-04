@@ -32,9 +32,13 @@ public enum FAAlertControllerAppearanceStyle {
     case dark
 }
 
+/// Adopted by types wishing to handle item selection in a `.picker` style alert
+public protocol FAAlertControllerDelegate {
+    func didSelectItem(_ item: Pickable)
+}
 
 /// A FAAlertController object displays an alert message to the user. This class replaces the UIController class for displaying alerts. After configuring the alert controller with the actions and style you want, present it using the present(_:animated:completion:) method.
-public class FAAlertController: UIViewController, FAAlertActionDelegate {
+public class FAAlertController: UIViewController, FAAlertActionDelegate, FAAlertControllerPickerDelegate {
     
     // MARK: Public Properties
     
@@ -131,6 +135,19 @@ public class FAAlertController: UIViewController, FAAlertActionDelegate {
     }
     
     public var completionHandler: (() -> ())?
+    
+    /// The object that acts as the delegate of the alert when it's style is `.picker`.
+    ///
+    /// This property is ignored when alert's style is anything other than `.picker`.
+    public var delegate: FAAlertControllerDelegate? {
+        didSet {
+            if delegate != nil {
+                FAAlertControllerAppearanceManager.sharedInstance.pickerDelegate = self
+            } else {
+                FAAlertControllerAppearanceManager.sharedInstance.pickerDelegate = nil
+            }
+        }
+    }
     
     // MARK: Internal Properties
     var alertView: FAAlertControllerView?
@@ -259,6 +276,36 @@ public class FAAlertController: UIViewController, FAAlertActionDelegate {
         }
         textFields!.append(textfield)
         configurationHandler!(textfield)
+    }
+    
+    
+    // MARK: Items
+    
+    
+    /// Called when an item was selected in a `.picker` style alert
+    ///
+    /// - Parameter item: The item that was selected
+    ///
+    /// This is an internal function used as a "springboard" to forward the selected item to the alert's delegate, if any.
+    func didSelectItem(_ item: Pickable) {
+        
+        if preferredStyle != .picker {
+            print("The `FAAlertControllerDelegate` protocol is only applicable to `FAAlertControllerStyle.picker`")
+        }
+        if delegate == nil {
+            print("No delegate was found. Adopt the `FAAlertControllerDelegate` protocol to handle the selected item.")
+        }
+
+        self.delegate?.didSelectItem(item)
+        
+        dismiss(animated: true) {
+            FAAlertControllerAppearanceManager.sharedInstance.delegate = nil
+            FAAlertControllerAppearanceManager.sharedInstance.pickerDelegate = nil
+            if self.completionHandler != nil {
+                self.completionHandler!()
+            }
+        }
+        
     }
     
     

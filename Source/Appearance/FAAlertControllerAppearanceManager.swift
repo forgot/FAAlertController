@@ -20,6 +20,8 @@ final class FAAlertControllerAppearanceManager: Singleton {
     
     var globalDelegate: FAAlertControllerAppearanceDelegate?
     
+    var pickerDelegate: FAAlertControllerPickerDelegate?
+    
     var _delegate = FAAlertControllerAppearanceManagerInternalDelegate()
     
     var appearanceStyle: FAAlertControllerAppearanceStyle = .default
