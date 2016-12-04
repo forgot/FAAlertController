@@ -13,6 +13,7 @@ protocol FAAlertControllerHeaderViewDataSource {
     var title: String? { get set }
     var message: String? { get set }
     var textFields: [UITextField]? { get set }
+    var items: [Pickable]? { get set }
 }
 
 protocol FAAlertControllerHeaderViewLayoutDataSource {
@@ -46,6 +47,7 @@ class FAAlertControllerHeaderView: UIScrollView {
     
     var title: String?
     var message: String?
+    var items: [Pickable]?
     var textFields: [UITextField]?
     var stackViewSpacing: CGFloat {
         switch FAAlertControllerAppearanceManager.sharedInstance.preferredStyle {

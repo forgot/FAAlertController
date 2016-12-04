@@ -14,6 +14,7 @@ class FAAlertControllerView: UIView {
     var title: String?
     var message: String?
     var textFields: [UITextField]?
+    var items: [Pickable]?
     var actions: [FAAlertAction]
     var preferredAction: FAAlertAction?
     var cancelAction: FAAlertAction?
@@ -25,11 +26,12 @@ class FAAlertControllerView: UIView {
     
     // MARK: View Lifecycle
     
-    init(title: String?, message: String?, textFields: [UITextField]?, actions: [FAAlertAction]?, preferredAction: FAAlertAction?) {
+    init(title: String?, message: String?, textFields: [UITextField]?, actions: [FAAlertAction]?, preferredAction: FAAlertAction?, items: [Pickable]? = nil) {
         
         self.title = title
         self.message = message
         self.textFields = textFields
+        self.items = items
         self.actions = actions == nil ? [FAAlertAction]() : actions!
         self.preferredAction = preferredAction
         super.init(frame: .zero)

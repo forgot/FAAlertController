@@ -98,6 +98,11 @@ public class FAAlertController: UIViewController, FAAlertActionDelegate {
     /// Use this property to access the text fields displayed by the alert. The text fields are in the order in which you added them to the alert controller. This order also corresponds to the order in which they are displayed in the alert.
     public var textFields: [UITextField]?
     
+    // The array of objects to be displayed in the textfield of a `picker` type alert.
+    //
+    // Use this property to access the objects displayed in the tableview of the alert.
+    public var items: [Pickable]?
+    
     /// The appearance of the alert controller
     ///
     /// The value of this property is set to the value you specified in the `init(title:message:preferredStyle:appearance:)` method. This value determines how the appearance of the user interface when the alert is displayed on screen.
@@ -142,11 +147,12 @@ public class FAAlertController: UIViewController, FAAlertActionDelegate {
     /// - parameter appearance:     The appearance of the alert controller. Use this parameter to cinfigure the alert controller with default (light) or dark appearance. The default value of this property is `FAAlertControllerAppearanceStyle.default`.
     ///
     /// - returns: An initialized alert controller object.
-    public init(title: String?, message: String?, preferredStyle: FAAlertControllerStyle, appearance: FAAlertControllerAppearanceStyle = .default) {
+    public init(title: String?, message: String?, preferredStyle: FAAlertControllerStyle, appearance: FAAlertControllerAppearanceStyle = .default, items: [Pickable]? = nil) {
         super.init(nibName: nil, bundle: nil)
         self.preferredStyle = preferredStyle
         self.title = title
         self.message = message
+        self.items = items
         FAAlertControllerAppearanceManager.sharedInstance.appearanceStyle = appearance
         transitioningDelegate = self
         modalPresentationStyle = UIModalPresentationStyle.custom
@@ -161,7 +167,7 @@ public class FAAlertController: UIViewController, FAAlertActionDelegate {
     // MARK: View Lifecycle
     
     override public func loadView() {
-        alertView = FAAlertControllerView(title: title, message: message, textFields: textFields, actions: actions, preferredAction: preferredAction)
+        alertView = FAAlertControllerView(title: title, message: message, textFields: textFields, actions: actions, preferredAction: preferredAction, items: items)
         view = alertView!
     }
     
