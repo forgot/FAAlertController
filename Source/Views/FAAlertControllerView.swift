@@ -241,6 +241,7 @@ class FAAlertControllerView: UIView {
     /// Prepares the array of FAAlertAction items by identifying the preferredAction and cancelAction, if any, and sorting the array accordingly.
     func prepareActions() {
         
+        // Loops through the actions checking for any with a `.cancel` style, then moves it to the end of the actions array. Additionally, it sets the identified cancel action, if any, to the preferred action if no other preferred action has been set.
         for action in actions {
             if action.style == .cancel {
                 guard let index = actions.index(of: action) else {

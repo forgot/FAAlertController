@@ -134,6 +134,7 @@ class FAAlertControllerHeaderView: UIScrollView {
         translatesAutoresizingMaskIntoConstraints = false
         widthAnchor.constraint(equalToConstant: _maxWidth).isActive = true
         
+        // This is the primary "content view" for the scroll view
         let contentView = UIView(frame: .zero)
         contentView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(contentView)
@@ -144,6 +145,7 @@ class FAAlertControllerHeaderView: UIScrollView {
         contentView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         contentView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         
+        // This view is used to layout the other subviews
         layoutView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(layoutView)
         
@@ -160,6 +162,7 @@ class FAAlertControllerHeaderView: UIScrollView {
         layoutView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         layoutView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
+        // This view is used to arrange the other subviews
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .fill

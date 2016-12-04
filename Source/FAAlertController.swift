@@ -134,6 +134,7 @@ public class FAAlertController: UIViewController, FAAlertActionDelegate, FAAlert
         }
     }
     
+    /// An optional closure to execute after the presentation finishes. This block has no return value and takes no parameters. You may specify `nil` for this parameter.
     public var completionHandler: (() -> ())?
     
     /// The object that acts as the delegate of the alert when it's style is `.picker`.
@@ -242,6 +243,8 @@ public class FAAlertController: UIViewController, FAAlertActionDelegate, FAAlert
         action.delegate = self
     }
     
+    
+    /// Dismisses the alert, and calls the the completionHandler, if any.
     func didPerformAction(_ action: FAAlertAction) {
         dismiss(animated: true) {
             FAAlertControllerAppearanceManager.sharedInstance.delegate = nil
