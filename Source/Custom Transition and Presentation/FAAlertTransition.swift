@@ -104,6 +104,37 @@ class FAAlertTransition: NSObject, UIViewControllerAnimatedTransitioning {
                             transitionContext.completeTransition(true)
                     })
                     
+                } else if style == .picker {
+                    
+                    // 1) Setup the view as it will appear when the transition is complete
+                    let layoutView = container
+                    view.centerYAnchor.constraint(equalTo: layoutView.centerYAnchor).isActive = true
+                    if toVC.traitCollection.verticalSizeClass == .regular {
+                        view.topAnchor.constraint(greaterThanOrEqualTo: layoutView.topAnchor, constant: 10).isActive = true
+                        view.bottomAnchor.constraint(lessThanOrEqualTo: layoutView.bottomAnchor, constant: -10).isActive = true
+                    } else if toVC.traitCollection.verticalSizeClass == .compact {
+                        view.topAnchor.constraint(greaterThanOrEqualTo: layoutView.topAnchor, constant: 0).isActive = true
+                        view.bottomAnchor.constraint(lessThanOrEqualTo: layoutView.bottomAnchor, constant: 0).isActive = true
+                    }
+                    container.layoutIfNeeded()
+                    
+                    // 2) Scroll to the preferred action
+                    scrollToPreferredActionIfNeeded(using: transitionContext)
+                    
+                    // 3) Adjust the view to it's pre-animation position
+                    view.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
+                    view.alpha = 0.0
+                    
+                    // 4) Animate the view onto the screen
+                    let option = UIViewAnimationOptions(rawValue: 7<<16)
+                    UIView.animate(withDuration: 0.2, delay: 0.0, options: [option], animations: {
+                        view.alpha = 1.0
+                        self.scrollToPreferredActionIfNeeded(using: transitionContext)
+                        view.transform = CGAffineTransform.identity
+                    }, completion: { (finished) in
+                        transitionContext.completeTransition(true)
+                    })
+                    
                 }
             }
         } else if mode == .dismiss {
@@ -142,6 +173,17 @@ class FAAlertTransition: NSObject, UIViewControllerAnimatedTransitioning {
                         view.frame = _offscreenRect
                         }, completion: { (finished) in
                             transitionContext.completeTransition(true)
+                    })
+                    
+                } else if style == .picker {
+                    
+                    UIView.animate(withDuration: FAAlertTransition.dismissDuration, animations: {
+                        view.alpha = 0.0
+                    }, completion: { (finished) in
+                        for view in container.subviews {
+                            view.removeFromSuperview()
+                        }
+                        transitionContext.completeTransition(true)
                     })
                     
                 }
