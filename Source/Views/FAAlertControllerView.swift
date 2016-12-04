@@ -44,6 +44,8 @@ class FAAlertControllerView: UIView {
             configureAlert()
         case .actionSheet:
             configureActionSheet()
+        case .picker:
+            configurePicker()
         }
     }
     
@@ -181,6 +183,58 @@ class FAAlertControllerView: UIView {
         
         layoutView.layoutIfNeeded()
         layoutIfNeeded()
+        
+    }
+    
+    func configurePicker() {
+        
+        // Create the alert view
+        interfaceView = FAAlertControllerInterfaceView()
+        
+        // Create and add the header view
+        let headerView = FAAlertControllerHeaderView()
+        headerView.title = title
+        headerView.message = message
+        headerView.items = items
+        headerView.prepareForLayout()
+        headerView.layoutIfNeeded()
+        interfaceView.stack.addArrangedSubview(headerView)
+        self.headerView = headerView
+        
+        
+        // Create and add the actions view
+        if !actions.isEmpty {
+            
+            // Create and add the separator view
+            let separatorView = FAAlertControllerHorizontalSeparatorView()
+            interfaceView.stack.addArrangedSubview(separatorView)
+            
+            let actionsView = FAAlertControllerActionsView()
+            actionsView.actions = actions
+            actionsView.preferredAction = preferredAction
+            actionsView.cancelAction = cancelAction
+            actionsView.prepareForLayout()
+            actionsView.layoutIfNeeded()
+            interfaceView.stack.addArrangedSubview(actionsView)
+            self.actionsView = actionsView
+            
+        } else { // Add default cancel action
+            actions = [FAAlertAction(title: "Cancel", style: .cancel, handler: nil)]
+        }
+        
+        interfaceView.stack.layoutIfNeeded()
+        
+        addSubview(interfaceView)
+        
+        // Setup constraints
+        interfaceView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        interfaceView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        widthAnchor.constraint(equalTo: interfaceView.widthAnchor).isActive = true
+        heightAnchor.constraint(equalTo: interfaceView.heightAnchor).isActive = true
+        let constraint = headerView.heightAnchor.constraint(equalTo: interfaceView.heightAnchor, multiplier: 1.5)
+        constraint.priority = 249
+        addConstraint(constraint)
+        constraint.isActive = true
         
     }
         
