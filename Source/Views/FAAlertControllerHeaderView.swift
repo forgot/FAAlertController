@@ -179,20 +179,24 @@ class FAAlertControllerHeaderView: UIScrollView {
     }
     
     override func layoutSubviews() {
-//        if gradientView == nil {
-//            gradientView = FAAlertControllerGradientView(frame: CGRect(x: 0, y: frame.maxY - 2, width: frame.width, height: 2))
-//            addSubview(gradientView!)
-//            gradientView?.alpha = 0.0
-//        }
+        
+        if gradientView == nil {
+            gradientView = FAAlertControllerGradientView(frame: CGRect(x: 0, y: frame.maxY - 2, width: frame.width, height: 2))
+            addSubview(gradientView!)
+            gradientView?.alpha = 0.0
+        }
+        
         super.layoutSubviews()
-//        contentSize = CGSize(width: frame.width, height: layoutView.frame.height)
-//        if layoutView.frame.height > frame.height {
-//            gradientView?.alpha = 1.0
-//        } else {
-//            gradientView?.alpha = 0.0
-//            gradientView!.removeFromSuperview()
-//            gradientView = nil
-//        }
+        
+        contentSize = CGSize(width: frame.width, height: layoutView.frame.height)
+        if layoutView.frame.height > frame.height {
+            gradientView?.alpha = 1.0
+        } else {
+            gradientView?.alpha = 0.0
+            gradientView!.removeFromSuperview()
+            gradientView = nil
+        }
+        
     }
     
     override func updateConstraints() {
