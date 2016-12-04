@@ -101,7 +101,7 @@ class FAAlertControllerHeaderView: UIScrollView {
     }
     var _titleFontSize: CGFloat {
         switch FAAlertControllerAppearanceManager.sharedInstance.preferredStyle {
-        case .alert:
+        case .alert, .picker:
             return 17
         case .actionSheet:
             return 13
@@ -228,7 +228,7 @@ class FAAlertControllerHeaderView: UIScrollView {
     func titleLabel(withText text: String, color: UIColor) -> UILabel {
         var font: UIFont? = nil
         switch FAAlertControllerAppearanceManager.sharedInstance.preferredStyle {
-        case .alert:
+        case .alert, .picker:
             font = UIFont.preferredFont(forTextStyle: .headline)
         case .actionSheet:
             let textStyle = UIFontTextStyle("UICTFontTextStyleEmphasizedFootnote")
@@ -245,7 +245,7 @@ class FAAlertControllerHeaderView: UIScrollView {
     func messageLabel(withText text: String, color: UIColor) -> UILabel {
         var font: UIFont? = nil
         switch FAAlertControllerAppearanceManager.sharedInstance.preferredStyle {
-        case .alert:
+        case .alert, .picker:
             let textStyle = UIFontTextStyle("UICTFontTextStyleShortFootnote")
             font = UIFont.preferredFont(forTextStyle: textStyle)
         case .actionSheet:

@@ -69,7 +69,7 @@ public extension FAAlertControllerAppearanceDelegate {
         switch appearanceStyle {
         case .default:
             switch preferredStyle {
-            case .alert:
+            case .alert, .picker:
                 return .black
             case .actionSheet:
                 return UIColor(red:0.561, green:0.561, blue:0.561, alpha:1)
@@ -82,7 +82,7 @@ public extension FAAlertControllerAppearanceDelegate {
         switch appearanceStyle {
         case .default:
             switch preferredStyle {
-            case .alert:
+            case .alert, .picker:
                 return .black
             case .actionSheet:
                 return UIColor(red:0.561, green:0.561, blue:0.561, alpha:1)

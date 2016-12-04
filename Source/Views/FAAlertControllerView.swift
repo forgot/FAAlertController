@@ -197,12 +197,13 @@ class FAAlertControllerView: UIView {
             }
         }
         
-        if FAAlertControllerAppearanceManager.sharedInstance.preferredStyle == .alert {
+        if FAAlertControllerAppearanceManager.sharedInstance.preferredStyle == .alert || FAAlertControllerAppearanceManager.sharedInstance.preferredStyle == .picker {
             if let _cancelAction = cancelAction {
                 actions.append(_cancelAction)
             }
         }
         
         FAAlertControllerAppearanceManager.sharedInstance.numberOfActions = actions.count
+        
     }
 }
