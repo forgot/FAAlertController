@@ -17,6 +17,10 @@ public enum FAAlertControllerStyle {
     ///
     /// Use an action sheet to present the user with a set of alternatives for how to proceed with a given task. You can also use this style to prompt the user to confirm a potentially dangerous action.
     case actionSheet
+    /// An alert containing a list in the form of a `UITableView`
+    ///
+    /// Use a picker to present the user with a list of possible choices for how to proceed with a given task.
+    case picker
 }
 
 
