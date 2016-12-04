@@ -55,6 +55,8 @@ class FAAlertControllerHeaderView: UIScrollView {
             return 3.0
         case .actionSheet:
             return 12.0
+        case .picker:
+            return 20
         }
     }
     
@@ -62,6 +64,7 @@ class FAAlertControllerHeaderView: UIScrollView {
     let stackView = UIStackView(arrangedSubviews: [UIView]())
     var titleLabel: UILabel?
     var messageLabel: UILabel?
+    var itemsView: UIView?//UITableView?
     var textFieldsView: FAAlertControllerTextFieldsView?
     var gradientView: FAAlertControllerGradientView?
     
@@ -69,7 +72,7 @@ class FAAlertControllerHeaderView: UIScrollView {
     var stackViewBottomConstraint: NSLayoutConstraint?
     var stackViewTopConstraintConstant: CGFloat {
         switch FAAlertControllerAppearanceManager.sharedInstance.preferredStyle {
-        case .alert:
+        case .alert, .picker:
             return stackView.arrangedSubviews.isEmpty ? 0 : -20
         case .actionSheet:
             return stackView.arrangedSubviews.isEmpty ? 0 : -14.5
@@ -95,6 +98,8 @@ class FAAlertControllerHeaderView: UIScrollView {
             } else {
                 return 14
             }
+        case .picker:
+            return 0
         }
     }
     
@@ -147,8 +152,10 @@ class FAAlertControllerHeaderView: UIScrollView {
         constraint.priority = 750
         constraint.isActive = true
         
-        layoutView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-        layoutView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
+        let margin: CGFloat = FAAlertControllerAppearanceManager.sharedInstance.preferredStyle == .picker ? 0 : 16
+        
+        layoutView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin).isActive = true
+        layoutView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin).isActive = true
         layoutView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         layoutView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
@@ -191,6 +198,7 @@ class FAAlertControllerHeaderView: UIScrollView {
     }
     
     func prepareForLayout() {
+        
         if titleLabel == nil {
             if let _title = title {
                 let color = FAAlertControllerAppearanceManager.sharedInstance.titleTextColor
@@ -199,6 +207,7 @@ class FAAlertControllerHeaderView: UIScrollView {
                 setNeedsUpdateConstraints()
             }
         }
+        
         if messageLabel == nil {
             if let _message = message {
                 let color = FAAlertControllerAppearanceManager.sharedInstance.messageTextColor
@@ -207,6 +216,16 @@ class FAAlertControllerHeaderView: UIScrollView {
                 setNeedsUpdateConstraints()
             }
         }
+        
+        if itemsView == nil {
+            if let _items = items {
+                let _itemsView = FAAlertControllerPickerView(items: _items)
+                itemsView = _itemsView
+                stackView.addArrangedSubview(itemsView!)
+                setNeedsUpdateConstraints()
+            }
+        }
+        
         if textFieldsView == nil {
             if let _textFields = textFields {
                 textFieldsView = FAAlertControllerTextFieldsView(withTextFields: _textFields)
@@ -214,6 +233,7 @@ class FAAlertControllerHeaderView: UIScrollView {
                 setNeedsUpdateConstraints()
             }
         }
+        
     }
     
     func createLabel() -> UILabel {

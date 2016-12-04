@@ -32,7 +32,7 @@ final class FAAlertControllerAppearanceManager: Singleton {
     
     var maxWidth: CGFloat {
         switch preferredStyle {
-        case .alert:
+        case .alert, .picker:
             return 270
         case .actionSheet:
             let bounds = UIScreen.main.bounds
