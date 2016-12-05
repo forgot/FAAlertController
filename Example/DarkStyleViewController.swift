@@ -27,6 +27,18 @@ class DarkStyleViewController: BaseViewController {
         navigationController?.navigationBar.barStyle = .blackTranslucent
         navigationController?.toolbar.barStyle = .blackTranslucent
         
+        for button in alertButtons {
+            button.tintColor = .orange
+        }
+        for button in actionSheetButtons {
+            button.tintColor = .orange
+        }
+
+        for button in pickerButtons {
+            button.tintColor = .orange
+        }
+
+        
         action1Title = "Don't"
         action2Title = "Look"
         action3Title = "Behind"

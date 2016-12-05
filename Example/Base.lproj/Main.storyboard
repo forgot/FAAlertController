@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11760" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6VU-Yo-F4u">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6VU-Yo-F4u">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11755"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -84,38 +84,12 @@
                             <constraint firstItem="401-yj-LQ0" firstAttribute="width" secondItem="fgY-Hw-q43" secondAttribute="width" id="zzq-F9-WHO"/>
                         </constraints>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="akL-js-DO8"/>
-                        <barButtonItem title="UIAlert" id="515-aR-qyk">
-                            <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="68S-W9-lSt"/>
-                        <barButtonItem title="FAAlert" id="18k-gp-85G">
-                            <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="0B4-yJ-ehd"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="9lO-3N-sTm">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="8jK-cG-r85">
-                            <rect key="frame" x="99" y="6.5" width="177" height="31"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Alert"/>
-                                <segment title="ActionSheet"/>
-                            </segments>
-                            <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="togglePreferredTypeWithSender:" destination="I70-yW-czg" eventType="primaryActionTriggered" id="uKc-Vu-o2t"/>
-                            </connections>
-                        </segmentedControl>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
-                    <connections>
-                        <outlet property="faControllerVersion" destination="18k-gp-85G" id="6rT-hm-IUR"/>
-                        <outlet property="uiControllerVersion" destination="515-aR-qyk" id="cKJ-5h-7Zk"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BlF-3y-9Cz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -145,45 +119,14 @@
                             <constraint firstItem="TmK-oB-Eag" firstAttribute="height" secondItem="7Ta-8s-Mj0" secondAttribute="height" id="sCY-4N-rDt"/>
                         </constraints>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Lfb-WA-z4v"/>
-                        <barButtonItem title="UIAlert" id="suB-7I-50J"/>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="aHp-yG-MEg"/>
-                        <barButtonItem title="FAAlert" id="O2n-Rl-ad4"/>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="juK-DG-whb"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="fYH-7k-0pU">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="b4I-hE-fT2">
-                            <rect key="frame" x="99" y="6.5" width="177" height="31"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Alert"/>
-                                <segment title="ActionSheet"/>
-                            </segments>
-                            <connections>
-                                <action selector="togglePreferredTypeWithSender:" destination="u80-U1-nZ2" eventType="primaryActionTriggered" id="ZSj-cM-oBU"/>
-                            </connections>
-                        </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" id="tmM-Qb-kwl">
-                            <color key="tintColor" white="1" alpha="0.14999999999999999" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="fabulousSecretPowers" destination="u80-U1-nZ2" id="e6Z-MA-acG"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="faControllerVersion" destination="O2n-Rl-ad4" id="gDx-0I-w2z"/>
-                        <outlet property="uiControllerVersion" destination="suB-7I-50J" id="Xnq-vG-OZY"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PpW-Oh-mER" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="2o6-Gj-GSo" customClass="Suprise" customModule="FAAlertControllerExample" customModuleProvider="target">
-                    <connections>
-                        <outletCollection property="supriseTargets" destination="tmM-Qb-kwl" collectionClass="NSMutableArray" id="jqk-qB-1jh"/>
-                    </connections>
-                </customObject>
+                <customObject id="2o6-Gj-GSo" customClass="Suprise" customModule="FAAlertControllerExample" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1929" y="1540"/>
         </scene>
@@ -211,33 +154,12 @@
                             <constraint firstItem="AOp-2D-Dzw" firstAttribute="centerX" secondItem="O4R-sy-PVT" secondAttribute="centerX" id="xsD-cO-VXi"/>
                         </constraints>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="fpq-rg-9Ag"/>
-                        <barButtonItem title="UIAlert" id="WwT-fh-PjH"/>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="o6A-Ua-roP"/>
-                        <barButtonItem title="FAAlert" id="EUE-KX-R1o"/>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="TJB-sx-XxU"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="FvP-Nb-X2U">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="3bk-OE-tPj">
-                            <rect key="frame" x="99" y="6.5" width="177" height="31"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Alert"/>
-                                <segment title="ActionSheet"/>
-                            </segments>
-                            <connections>
-                                <action selector="togglePreferredTypeWithSender:" destination="ZWL-rY-SkG" eventType="primaryActionTriggered" id="xa8-ql-jdB"/>
-                            </connections>
-                        </segmentedControl>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="faControllerVersion" destination="EUE-KX-R1o" id="mAc-dk-syt"/>
-                        <outlet property="uiControllerVersion" destination="WwT-fh-PjH" id="fez-Wj-6Zg"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oJ1-Pc-FCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

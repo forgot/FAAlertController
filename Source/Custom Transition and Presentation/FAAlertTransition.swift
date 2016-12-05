@@ -25,15 +25,21 @@ class FAAlertTransition: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        
         guard let fromVC = transitionContext.viewController(forKey: .from), let toVC = transitionContext.viewController(forKey: .to) else {
             preconditionFailure("Could not obtain a view controller for the key `from` or `to`.")
         }
+        
         let container = transitionContext.containerView
         let style = FAAlertControllerAppearanceManager.sharedInstance.preferredStyle
+        
         if mode == .present {
+            
             if let toVC = toVC as? FAAlertController, let view = toVC.view {
+                
                 container.addSubview(view)
                 view.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
+                
                 if style == .alert {
                     
                     // 1) Setup the view as it will appear when the transition is complete

@@ -7,34 +7,100 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		15B543232CCD9BF9E2B9878897DBCB85 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		612BC570A0E4EF34168FD0E9054A1A2C /* Pods-FAAlertControllerExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE8E7CE07F6510DC903BEBF36EB4AC /* Pods-FAAlertControllerExample-dummy.m */; };
-		840F3BCF6D5CDF554557148496ACC4F9 /* Pods-FAAlertControllerExample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 06FA7DD23EE07EA84E1A4B8D0A813C84 /* Pods-FAAlertControllerExample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E83EEBE51B11F86E54FA2E7E9DE2898 /* FAAlertControllerTextFieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCE1848B351D41FA99A0EC5B6B5D3F /* FAAlertControllerTextFieldsView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		17E5CEEDA69BC591DEEF244349B6333E /* FAAlertControllerPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B7499E3ED49EE6E8729DAAAB7BC34 /* FAAlertControllerPickerView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		262B4D0D8357663FC77C787132686293 /* BlendableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DC0CF9EA2F27D46B48A2BA6A08B873 /* BlendableView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		26C6A1591D4755A03FCEE83479D53D02 /* FAAlertControllerAppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA5E23C17534A80421FA11AB8E4AF95 /* FAAlertControllerAppearanceManager.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		29E47B4937862A049BDEA7E4EF9B0E1B /* FAAlertTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65956C88E041381F892D13DB4A07179F /* FAAlertTransition.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		389AC34C0C11F4445EC819E59F6BCAFA /* FAAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23596592A8CDBF324CA475969D73367B /* FAAlertAction.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3B0376FCAB6732DF9A960ACDD3818552 /* FAAlertControllerAppearanceManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A2AFFF783E4BA520636C7B3620DF02 /* FAAlertControllerAppearanceManagerDelegate.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		489A223A95411DCE6B38EF455A4F73B3 /* FAAlertControllerInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C77A216B795156C489312023D6156 /* FAAlertControllerInterfaceView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		59C1B496F6812840672D01F7AB5829A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		62530DD6D009D8288408325650FF7F93 /* FAAlertControllerBackdropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33384A55848911E3D4AE98D057A1D974 /* FAAlertControllerBackdropView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		66DF31539FB8920885954AC36E691012 /* FAAlertControllerPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1536F0BB92AD70F4B6FEC18EEF11C4AD /* FAAlertControllerPresentationController.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		68F590AEAECCDAF89C09E652150ADC31 /* Pods-FAAlertControllerExample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 06FA7DD23EE07EA84E1A4B8D0A813C84 /* Pods-FAAlertControllerExample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6EBA18C955CFA44F3D67911E4A7BEB73 /* FAAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = 97C59AA278080F9CD69E1F122576B150 /* FAAlertController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7A8E412B78AF2D4674A4409483C92F83 /* FAAlertControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759764DC271D119C47DE51A56AECFFED /* FAAlertControllerView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		8753B32B63A483D91AF2ECA979F6C2C9 /* Pods-FAAlertControllerExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE8E7CE07F6510DC903BEBF36EB4AC /* Pods-FAAlertControllerExample-dummy.m */; };
+		87A227465BD2BBAF49AB726481211CFF /* FAAlertController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BC6B06709AF04C071D8ED0C0B546865B /* FAAlertController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B27D71A9367F8AD59455A34338453A8 /* FAAlertControllerSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B680A097E07DFAD27637190C07BEF78 /* FAAlertControllerSeparatorView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B404EC1239CFD5382EC9BD1F84A5CED6 /* FAAlertController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3F77DDFDE0845A5E364B6578F64303 /* FAAlertController-dummy.m */; };
+		BB4A277D2CE0C8552BF2E313F3CBF9DF /* FAAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848218542BFDF4A181DAA0E47B9C0596 /* FAAlertController.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C31FB1107FEB4B15715A9CD7784FAD7F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		C9B5971AF4CCF4E228048666827B6A77 /* HighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE46DBC5F12946CD0A56181763406641 /* HighlightView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		CDF6D0D18434E40494188D2225643455 /* FAAlertControllerActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E006CFB2CE1588BC71FCB54A8814A5A /* FAAlertControllerActionsView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		E5AF7CA219C0740C4257ED68F29E835B /* FAAlertActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E4F479218DD901AA0C49E5D3FDBA4D /* FAAlertActionView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F39F2B6CEC431FF7708B6AE2116CA6B5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39A85DB0E33FEE64C94B77E34F859D8 /* Extensions.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FBCDD8AF99EFBFCE285D5665C26E1BD4 /* FAAlertControllerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEBF0093D054371214067AA5E351F9 /* FAAlertControllerHeaderView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B34EBCBEACC46F9283290D23C5105324 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC64122F313EDCC888B6736BAEEED8D7;
+			remoteInfo = FAAlertController;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0082FB7BB768714A86B91AA423D03351 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00A5CA6AEEFA79F27A7ED3791529E97F /* Pods_FAAlertControllerExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FAAlertControllerExample.framework; path = "Pods-FAAlertControllerExample.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06FA7DD23EE07EA84E1A4B8D0A813C84 /* Pods-FAAlertControllerExample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FAAlertControllerExample-umbrella.h"; sourceTree = "<group>"; };
 		08A5237D92224C75066C40C7AC2FCA00 /* Pods-FAAlertControllerExample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FAAlertControllerExample-resources.sh"; sourceTree = "<group>"; };
+		0FBEBF0093D054371214067AA5E351F9 /* FAAlertControllerHeaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FAAlertControllerHeaderView.swift; sourceTree = "<group>"; };
+		1076FA4F88831C41B72C2386B8E7C881 /* FAAlertController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FAAlertController.framework; path = FAAlertController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1536F0BB92AD70F4B6FEC18EEF11C4AD /* FAAlertControllerPresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FAAlertControllerPresentationController.swift; sourceTree = "<group>"; };
 		186D8E461D2238EB4183E62C8017601E /* Pods-FAAlertControllerExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FAAlertControllerExample.debug.xcconfig"; sourceTree = "<group>"; };
-		40CC61FD1F795F18D809B828402BA082 /* Pods_FAAlertControllerExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FAAlertControllerExample.framework; path = "Pods-FAAlertControllerExample.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		23596592A8CDBF324CA475969D73367B /* FAAlertAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FAAlertAction.swift; sourceTree = "<group>"; };
+		33384A55848911E3D4AE98D057A1D974 /* FAAlertControllerBackdropView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FAAlertControllerBackdropView.swift; sourceTree = "<group>"; };
+		34E4F479218DD901AA0C49E5D3FDBA4D /* FAAlertActionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FAAlertActionView.swift; sourceTree = "<group>"; };
+		3A8B7499E3ED49EE6E8729DAAAB7BC34 /* FAAlertControllerPickerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FAAlertControllerPickerView.swift; sourceTree = "<group>"; };
+		5B680A097E07DFAD27637190C07BEF78 /* FAAlertControllerSeparatorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FAAlertControllerSeparatorView.swift; sourceTree = "<group>"; };
 		5C4C27CA03FC39AF225BF7056B1B64D7 /* Pods-FAAlertControllerExample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-FAAlertControllerExample.modulemap"; sourceTree = "<group>"; };
 		656291FAE38AEAD19388C51A1FC86E31 /* Pods-FAAlertControllerExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FAAlertControllerExample-frameworks.sh"; sourceTree = "<group>"; };
+		65956C88E041381F892D13DB4A07179F /* FAAlertTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FAAlertTransition.swift; sourceTree = "<group>"; };
+		6DA5E23C17534A80421FA11AB8E4AF95 /* FAAlertControllerAppearanceManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FAAlertControllerAppearanceManager.swift; sourceTree = "<group>"; };
+		759764DC271D119C47DE51A56AECFFED /* FAAlertControllerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FAAlertControllerView.swift; sourceTree = "<group>"; };
+		78CCD3CFD6671DB85C9E03D75E3BBB0F /* FAAlertController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FAAlertController.xcconfig; sourceTree = "<group>"; };
+		7AA59FCC3A2D5BC90FDA93A72F71A05C /* FAAlertController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FAAlertController-prefix.pch"; sourceTree = "<group>"; };
+		80DC0CF9EA2F27D46B48A2BA6A08B873 /* BlendableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BlendableView.swift; sourceTree = "<group>"; };
+		848218542BFDF4A181DAA0E47B9C0596 /* FAAlertController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FAAlertController.swift; sourceTree = "<group>"; };
 		8B5DC42D2E4030AB4EBF8131A5C8F955 /* Pods-FAAlertControllerExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FAAlertControllerExample.release.xcconfig"; sourceTree = "<group>"; };
+		8BFCE1848B351D41FA99A0EC5B6B5D3F /* FAAlertControllerTextFieldsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FAAlertControllerTextFieldsView.swift; sourceTree = "<group>"; };
+		8E006CFB2CE1588BC71FCB54A8814A5A /* FAAlertControllerActionsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FAAlertControllerActionsView.swift; sourceTree = "<group>"; };
 		9232AD6F5D7D47B9CEE650EC274ABD13 /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RevealServer.framework; path = "RevealServer-3/iOS/RevealServer.framework"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94EEAB49694850F668611ADE81AE65A5 /* FAAlertController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FAAlertController.modulemap; sourceTree = "<group>"; };
+		97C59AA278080F9CD69E1F122576B150 /* FAAlertController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FAAlertController.h; sourceTree = "<group>"; };
 		9AEE8E7CE07F6510DC903BEBF36EB4AC /* Pods-FAAlertControllerExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FAAlertControllerExample-dummy.m"; sourceTree = "<group>"; };
+		A5A2AFFF783E4BA520636C7B3620DF02 /* FAAlertControllerAppearanceManagerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FAAlertControllerAppearanceManagerDelegate.swift; sourceTree = "<group>"; };
+		AC3F77DDFDE0845A5E364B6578F64303 /* FAAlertController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FAAlertController-dummy.m"; sourceTree = "<group>"; };
+		BC6B06709AF04C071D8ED0C0B546865B /* FAAlertController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FAAlertController-umbrella.h"; sourceTree = "<group>"; };
+		C39A85DB0E33FEE64C94B77E34F859D8 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D48F2470ED0B2FBBF6B7DBFF86639195 /* Pods-FAAlertControllerExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FAAlertControllerExample-acknowledgements.plist"; sourceTree = "<group>"; };
+		D85C77A216B795156C489312023D6156 /* FAAlertControllerInterfaceView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FAAlertControllerInterfaceView.swift; sourceTree = "<group>"; };
 		DDAFA052F0380D69DA0145AFC6BD4FFF /* Pods-FAAlertControllerExample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FAAlertControllerExample-acknowledgements.markdown"; sourceTree = "<group>"; };
+		DE46DBC5F12946CD0A56181763406641 /* HighlightView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HighlightView.swift; sourceTree = "<group>"; };
+		F47F5BDD37EE72F7C72C551B97218B9E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6D9D2E7111D0FC5CC75BF5E79586F1AC /* Frameworks */ = {
+		7AA105C519C7E3CB6A39EB82EBEEF37B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15B543232CCD9BF9E2B9878897DBCB85 /* Foundation.framework in Frameworks */,
+				C31FB1107FEB4B15715A9CD7784FAD7F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F196BDAA9627357984EA96FBDD49FE57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59C1B496F6812840672D01F7AB5829A0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +115,62 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		1AD791C99B31061A72879DBD9D42ED3F /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				27B2C1B236A50EA0736460797325A4A4 /* FAAlertController */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		239AEE781A6F23F17E54563BFD35D5E6 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				94EEAB49694850F668611ADE81AE65A5 /* FAAlertController.modulemap */,
+				78CCD3CFD6671DB85C9E03D75E3BBB0F /* FAAlertController.xcconfig */,
+				AC3F77DDFDE0845A5E364B6578F64303 /* FAAlertController-dummy.m */,
+				7AA59FCC3A2D5BC90FDA93A72F71A05C /* FAAlertController-prefix.pch */,
+				BC6B06709AF04C071D8ED0C0B546865B /* FAAlertController-umbrella.h */,
+				F47F5BDD37EE72F7C72C551B97218B9E /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Pods/Target Support Files/FAAlertController";
+			sourceTree = "<group>";
+		};
+		27B2C1B236A50EA0736460797325A4A4 /* FAAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				2A197D1499145D53351D2E96CDC62C66 /* Source */,
+				239AEE781A6F23F17E54563BFD35D5E6 /* Support Files */,
+			);
+			name = FAAlertController;
+			path = /Users/jessedcox/Apprhythmia/Libraries/iOS/Swift/FAAlertController;
+			sourceTree = "<absolute>";
+		};
+		2A197D1499145D53351D2E96CDC62C66 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				23596592A8CDBF324CA475969D73367B /* FAAlertAction.swift */,
+				848218542BFDF4A181DAA0E47B9C0596 /* FAAlertController.swift */,
+				523655B7CBCCB63CF39F1A9616E4F7D6 /* Appearance */,
+				9AE48E0292BF77D152946EBE4A676917 /* Custom Transition and Presentation */,
+				6F1CF82958A1AAE97484CE81305D7165 /* Supporting Files */,
+				6B7109E88EA18DAFC28830DC5F4409C0 /* Views */,
+			);
+			name = Source;
+			path = Source;
+			sourceTree = "<group>";
+		};
+		523655B7CBCCB63CF39F1A9616E4F7D6 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				6DA5E23C17534A80421FA11AB8E4AF95 /* FAAlertControllerAppearanceManager.swift */,
+				A5A2AFFF783E4BA520636C7B3620DF02 /* FAAlertControllerAppearanceManagerDelegate.swift */,
+			);
+			name = Appearance;
+			path = Appearance;
+			sourceTree = "<group>";
+		};
 		5E0C2156AFD7461E99A7C69D2FCBFC40 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -57,12 +179,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		71D1DA72D8BE7C5EF5EDA4992AA97225 /* Products */ = {
+		6B7109E88EA18DAFC28830DC5F4409C0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				40CC61FD1F795F18D809B828402BA082 /* Pods_FAAlertControllerExample.framework */,
+				34E4F479218DD901AA0C49E5D3FDBA4D /* FAAlertActionView.swift */,
+				8E006CFB2CE1588BC71FCB54A8814A5A /* FAAlertControllerActionsView.swift */,
+				33384A55848911E3D4AE98D057A1D974 /* FAAlertControllerBackdropView.swift */,
+				0FBEBF0093D054371214067AA5E351F9 /* FAAlertControllerHeaderView.swift */,
+				D85C77A216B795156C489312023D6156 /* FAAlertControllerInterfaceView.swift */,
+				3A8B7499E3ED49EE6E8729DAAAB7BC34 /* FAAlertControllerPickerView.swift */,
+				5B680A097E07DFAD27637190C07BEF78 /* FAAlertControllerSeparatorView.swift */,
+				8BFCE1848B351D41FA99A0EC5B6B5D3F /* FAAlertControllerTextFieldsView.swift */,
+				759764DC271D119C47DE51A56AECFFED /* FAAlertControllerView.swift */,
+			);
+			name = Views;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6E4184407C6B93D7CC02FBE6981E527F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1076FA4F88831C41B72C2386B8E7C881 /* FAAlertController.framework */,
+				00A5CA6AEEFA79F27A7ED3791529E97F /* Pods_FAAlertControllerExample.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6F1CF82958A1AAE97484CE81305D7165 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				80DC0CF9EA2F27D46B48A2BA6A08B873 /* BlendableView.swift */,
+				C39A85DB0E33FEE64C94B77E34F859D8 /* Extensions.swift */,
+				97C59AA278080F9CD69E1F122576B150 /* FAAlertController.h */,
+				DE46DBC5F12946CD0A56181763406641 /* HighlightView.swift */,
+			);
+			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
@@ -77,11 +229,22 @@
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				1AD791C99B31061A72879DBD9D42ED3F /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				9B6766349D399265AA26ED6C7E8D5333 /* Pods */,
-				71D1DA72D8BE7C5EF5EDA4992AA97225 /* Products */,
+				6E4184407C6B93D7CC02FBE6981E527F /* Products */,
 				1770AB66DA57048B6D010CD089F2CF47 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		9AE48E0292BF77D152946EBE4A676917 /* Custom Transition and Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				1536F0BB92AD70F4B6FEC18EEF11C4AD /* FAAlertControllerPresentationController.swift */,
+				65956C88E041381F892D13DB4A07179F /* FAAlertTransition.swift */,
+			);
+			name = "Custom Transition and Presentation";
+			path = "Custom Transition and Presentation";
 			sourceTree = "<group>";
 		};
 		9B6766349D399265AA26ED6C7E8D5333 /* Pods */ = {
@@ -130,32 +293,59 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		A4BF8A583F85563F59B5017FEEB43A5D /* Headers */ = {
+		726FA7E86B5757E8C07A5CDA457295F9 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				840F3BCF6D5CDF554557148496ACC4F9 /* Pods-FAAlertControllerExample-umbrella.h in Headers */,
+				68F590AEAECCDAF89C09E652150ADC31 /* Pods-FAAlertControllerExample-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82B69826E8AB65B68328438F9C04D15D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87A227465BD2BBAF49AB726481211CFF /* FAAlertController-umbrella.h in Headers */,
+				6EBA18C955CFA44F3D67911E4A7BEB73 /* FAAlertController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		84047ADE887724FAA09510D975352F82 /* Pods-FAAlertControllerExample */ = {
+		577B98D40EA512778DA517E14EDB0013 /* Pods-FAAlertControllerExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EF22A167E2CA0C3F464CBD786064E5FC /* Build configuration list for PBXNativeTarget "Pods-FAAlertControllerExample" */;
+			buildConfigurationList = 0D2422EF07A89748215E34C7D3ABBE8A /* Build configuration list for PBXNativeTarget "Pods-FAAlertControllerExample" */;
 			buildPhases = (
-				9CA9D37E00307617736A5C3D72998FBD /* Sources */,
-				6D9D2E7111D0FC5CC75BF5E79586F1AC /* Frameworks */,
-				A4BF8A583F85563F59B5017FEEB43A5D /* Headers */,
+				128D2A6678A20ED45A16F71CF5B73141 /* Sources */,
+				7AA105C519C7E3CB6A39EB82EBEEF37B /* Frameworks */,
+				726FA7E86B5757E8C07A5CDA457295F9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D66BE7C28183EAF5FAD2BCBBC91E07FC /* PBXTargetDependency */,
+			);
+			name = "Pods-FAAlertControllerExample";
+			productName = "Pods-FAAlertControllerExample";
+			productReference = 00A5CA6AEEFA79F27A7ED3791529E97F /* Pods_FAAlertControllerExample.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AC64122F313EDCC888B6736BAEEED8D7 /* FAAlertController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34B5E64A96A2594EC36CB593469F5319 /* Build configuration list for PBXNativeTarget "FAAlertController" */;
+			buildPhases = (
+				8BB93A6D4B0606929A6E0CCA40623542 /* Sources */,
+				F196BDAA9627357984EA96FBDD49FE57 /* Frameworks */,
+				82B69826E8AB65B68328438F9C04D15D /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-FAAlertControllerExample";
-			productName = "Pods-FAAlertControllerExample";
-			productReference = 40CC61FD1F795F18D809B828402BA082 /* Pods_FAAlertControllerExample.framework */;
+			name = FAAlertController;
+			productName = FAAlertController;
+			productReference = 1076FA4F88831C41B72C2386B8E7C881 /* FAAlertController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -175,61 +365,95 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 71D1DA72D8BE7C5EF5EDA4992AA97225 /* Products */;
+			productRefGroup = 6E4184407C6B93D7CC02FBE6981E527F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				84047ADE887724FAA09510D975352F82 /* Pods-FAAlertControllerExample */,
+				AC64122F313EDCC888B6736BAEEED8D7 /* FAAlertController */,
+				577B98D40EA512778DA517E14EDB0013 /* Pods-FAAlertControllerExample */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9CA9D37E00307617736A5C3D72998FBD /* Sources */ = {
+		128D2A6678A20ED45A16F71CF5B73141 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				612BC570A0E4EF34168FD0E9054A1A2C /* Pods-FAAlertControllerExample-dummy.m in Sources */,
+				8753B32B63A483D91AF2ECA979F6C2C9 /* Pods-FAAlertControllerExample-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BB93A6D4B0606929A6E0CCA40623542 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				262B4D0D8357663FC77C787132686293 /* BlendableView.swift in Sources */,
+				F39F2B6CEC431FF7708B6AE2116CA6B5 /* Extensions.swift in Sources */,
+				389AC34C0C11F4445EC819E59F6BCAFA /* FAAlertAction.swift in Sources */,
+				E5AF7CA219C0740C4257ED68F29E835B /* FAAlertActionView.swift in Sources */,
+				B404EC1239CFD5382EC9BD1F84A5CED6 /* FAAlertController-dummy.m in Sources */,
+				BB4A277D2CE0C8552BF2E313F3CBF9DF /* FAAlertController.swift in Sources */,
+				CDF6D0D18434E40494188D2225643455 /* FAAlertControllerActionsView.swift in Sources */,
+				26C6A1591D4755A03FCEE83479D53D02 /* FAAlertControllerAppearanceManager.swift in Sources */,
+				3B0376FCAB6732DF9A960ACDD3818552 /* FAAlertControllerAppearanceManagerDelegate.swift in Sources */,
+				62530DD6D009D8288408325650FF7F93 /* FAAlertControllerBackdropView.swift in Sources */,
+				FBCDD8AF99EFBFCE285D5665C26E1BD4 /* FAAlertControllerHeaderView.swift in Sources */,
+				489A223A95411DCE6B38EF455A4F73B3 /* FAAlertControllerInterfaceView.swift in Sources */,
+				17E5CEEDA69BC591DEEF244349B6333E /* FAAlertControllerPickerView.swift in Sources */,
+				66DF31539FB8920885954AC36E691012 /* FAAlertControllerPresentationController.swift in Sources */,
+				9B27D71A9367F8AD59455A34338453A8 /* FAAlertControllerSeparatorView.swift in Sources */,
+				0E83EEBE51B11F86E54FA2E7E9DE2898 /* FAAlertControllerTextFieldsView.swift in Sources */,
+				7A8E412B78AF2D4674A4409483C92F83 /* FAAlertControllerView.swift in Sources */,
+				29E47B4937862A049BDEA7E4EF9B0E1B /* FAAlertTransition.swift in Sources */,
+				C9B5971AF4CCF4E228048666827B6A77 /* HighlightView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D66BE7C28183EAF5FAD2BCBBC91E07FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FAAlertController;
+			target = AC64122F313EDCC888B6736BAEEED8D7 /* FAAlertController */;
+			targetProxy = B34EBCBEACC46F9283290D23C5105324 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		07C0AB01036314DF927812CB432A4610 /* Release */ = {
+		0FFD417F61329F99C929FBD6692E2C5E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8B5DC42D2E4030AB4EBF8131A5C8F955 /* Pods-FAAlertControllerExample.release.xcconfig */;
+			baseConfigurationReference = 78CCD3CFD6671DB85C9E03D75E3BBB0F /* FAAlertController.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-FAAlertControllerExample/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/FAAlertController/FAAlertController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FAAlertController/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-FAAlertControllerExample/Pods-FAAlertControllerExample.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_FAAlertControllerExample;
+				MODULEMAP_FILE = "Target Support Files/FAAlertController/FAAlertController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = FAAlertController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		12914D756594D15C6F2CA12FE5F89F1B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -275,15 +499,15 @@
 			};
 			name = Debug;
 		};
-		3A299E8E581EA964F7C94CBDCBCDB12F /* Debug */ = {
+		694A6528BEA79810596B99164D56CA6B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 186D8E461D2238EB4183E62C8017601E /* Pods-FAAlertControllerExample.debug.xcconfig */;
+			baseConfigurationReference = 8B5DC42D2E4030AB4EBF8131A5C8F955 /* Pods-FAAlertControllerExample.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -296,7 +520,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-FAAlertControllerExample/Pods-FAAlertControllerExample.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -308,7 +532,7 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		E72E7977875C2D251FC62736BBDDC389 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -350,9 +574,86 @@
 			};
 			name = Release;
 		};
+		E9BC4E7281A92DA255263B54F71E01C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 186D8E461D2238EB4183E62C8017601E /* Pods-FAAlertControllerExample.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-FAAlertControllerExample/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FAAlertControllerExample/Pods-FAAlertControllerExample.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_FAAlertControllerExample;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F0F7DB5E84CF5F8492EA87B6787666A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78CCD3CFD6671DB85C9E03D75E3BBB0F /* FAAlertController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/FAAlertController/FAAlertController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FAAlertController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FAAlertController/FAAlertController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = FAAlertController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0D2422EF07A89748215E34C7D3ABBE8A /* Build configuration list for PBXNativeTarget "Pods-FAAlertControllerExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9BC4E7281A92DA255263B54F71E01C6 /* Debug */,
+				694A6528BEA79810596B99164D56CA6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -362,11 +663,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EF22A167E2CA0C3F464CBD786064E5FC /* Build configuration list for PBXNativeTarget "Pods-FAAlertControllerExample" */ = {
+		34B5E64A96A2594EC36CB593469F5319 /* Build configuration list for PBXNativeTarget "FAAlertController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3A299E8E581EA964F7C94CBDCBCDB12F /* Debug */,
-				07C0AB01036314DF927812CB432A4610 /* Release */,
+				0FFD417F61329F99C929FBD6692E2C5E /* Debug */,
+				F0F7DB5E84CF5F8492EA87B6787666A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
