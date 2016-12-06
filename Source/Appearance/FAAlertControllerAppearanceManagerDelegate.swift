@@ -165,6 +165,32 @@ public extension FAAlertControllerAppearanceDelegate {
             return .white
         }
     }
+    
+    var tableViewBackgroundColor: UIColor {
+        switch appearanceStyle {
+        case .default:
+            return .white
+        case .dark:
+            return UIColor(white: 0.15, alpha: 1.0)
+        }
+    }
+    var tableViewSeparatorColor: UIColor {
+        switch appearanceStyle {
+        case .default:
+            return UIColor(red:0.784, green:0.780, blue:0.800, alpha:1)
+        case .dark:
+            return .darkGray
+        }
+    }
+    var tableViewCellBackgroundColor: UIColor {
+        switch appearanceStyle {
+        case .default:
+            return .white
+        case .dark:
+            return .clear
+        }
+    }
+    
 
     
 }

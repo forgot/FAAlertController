@@ -27,26 +27,21 @@ class FAAlertControllerPickerView: UITableView, UITableViewDataSource, UITableVi
     
     init(items: [Pickable]?) {
         super.init(frame: .zero, style: .plain)
+        
         dataSource = self
         delegate = self
-        self.items = items
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .white
         heightAnchor.constraint(equalToConstant: 200).isActive = true
+        backgroundColor = FAAlertControllerAppearanceManager.sharedInstance.tableViewBackgroundColor
+        separatorColor = FAAlertControllerAppearanceManager.sharedInstance.tableViewSeparatorColor
+        self.items = items
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
+    
     // MARK: - Table view data source
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -63,6 +58,10 @@ class FAAlertControllerPickerView: UITableView, UITableViewDataSource, UITableVi
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "identifier")
+        // Adjust the appearance...
+        cell.backgroundColor = FAAlertControllerAppearanceManager.sharedInstance.tableViewCellBackgroundColor
+        cell.textLabel?.textColor = FAAlertControllerAppearanceManager.sharedInstance.titleTextColor
+        cell.detailTextLabel?.textColor = FAAlertControllerAppearanceManager.sharedInstance.titleTextColor
         // Configure the cell...
         if let item = items?[indexPath.row] {
             cell.textLabel?.text = item.title

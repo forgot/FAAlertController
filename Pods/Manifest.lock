@@ -3,17 +3,17 @@ PODS:
   - Reveal-SDK (3)
 
 DEPENDENCIES:
-  - FAAlertController (from `~/Apprhythmia/Libraries/iOS/Swift/FAAlertController`)
+  - FAAlertController (from `./`)
   - Reveal-SDK
 
 EXTERNAL SOURCES:
   FAAlertController:
-    :path: "~/Apprhythmia/Libraries/iOS/Swift/FAAlertController"
+    :path: "./"
 
 SPEC CHECKSUMS:
   FAAlertController: 24dde216fc3dd88528c020116c213ff926a89d64
   Reveal-SDK: cad54352e23854083e3917ddf665dc0fe7781c53
 
-PODFILE CHECKSUM: 3cc60e86afe76ff78fa8c3550aa1eb5c8c12444d
+PODFILE CHECKSUM: cd2d5f0f32b7810e017d62bdece5787773cc5e4d
 
 COCOAPODS: 1.1.1

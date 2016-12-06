@@ -133,17 +133,13 @@ class BaseViewController: UIViewController, FAAlertControllerDelegate {
         switch sender.selectedSegmentIndex {
         case 0:
             setToolbarItems(alertButtons, animated: true)
-//            toolbarItems = alertButtons
         case 1:
             setToolbarItems(actionSheetButtons, animated: true)
-//            toolbarItems = actionSheetButtons
         case 2:
             setToolbarItems(pickerButtons, animated: true)
-//            toolbarItems = pickerButtons
         default:
             print("We shouldn't ever get here")
         }
-//        view.layoutIfNeeded()
     }
     
     func showUIAlert() {
@@ -334,7 +330,7 @@ class BaseViewController: UIViewController, FAAlertControllerDelegate {
         
         // Setup Alert
         let title = "Select A Wireless Network"
-        let alert = FAAlertController(title: title, message: nil, preferredStyle: .picker, appearance: .default, items: items)
+        let alert = FAAlertController(title: title, message: nil, preferredStyle: .picker, appearance: appearanceStyle, items: items)
         alert.addAction(cancel)
         alert.delegate = self
         present(alert, animated: true, completion: nil)

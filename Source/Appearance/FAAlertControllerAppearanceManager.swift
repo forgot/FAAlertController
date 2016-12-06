@@ -199,6 +199,36 @@ final class FAAlertControllerAppearanceManager: Singleton {
         }
     }
     
+    var tableViewBackgroundColor: UIColor {
+        if delegate != nil {
+            return delegate!.tableViewBackgroundColor
+        } else if globalDelegate != nil {
+            return globalDelegate!.tableViewBackgroundColor
+        }else {
+            return _delegate.tableViewBackgroundColor
+        }
+    }
+    var tableViewSeparatorColor: UIColor {
+        if delegate != nil {
+            return delegate!.tableViewSeparatorColor
+        } else if globalDelegate != nil {
+            return globalDelegate!.tableViewSeparatorColor
+        }else {
+            return _delegate.tableViewSeparatorColor
+        }
+    }
+    var tableViewCellBackgroundColor: UIColor {
+        if delegate != nil {
+            return delegate!.tableViewCellBackgroundColor
+        } else if globalDelegate != nil {
+            return globalDelegate!.tableViewCellBackgroundColor
+        }else {
+            return _delegate.tableViewCellBackgroundColor
+        }
+    }
+    
+    
+    
     private init() {}
     
 }

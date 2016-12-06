@@ -12,5 +12,6 @@ project 'FAAlertControllerExample.xcodeproj'
 target :FAAlertControllerExample do
     project 'FAAlertControllerExample'
     pod 'Reveal-SDK', :configuration => 'Debug'
-    pod 'FAAlertController', :path => '~/Apprhythmia/Libraries/iOS/Swift/FAAlertController'
+#    pod 'FAAlertController', :path => '~/Apprhythmia/Libraries/iOS/Swift/FAAlertController'
+pod 'FAAlertController', :path => './'
 end

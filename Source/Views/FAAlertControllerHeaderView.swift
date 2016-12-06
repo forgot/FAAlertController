@@ -65,7 +65,7 @@ class FAAlertControllerHeaderView: UIScrollView {
     let stackView = UIStackView(arrangedSubviews: [UIView]())
     var titleLabel: UILabel?
     var messageLabel: UILabel?
-    var itemsView: UIView?//UITableView?
+    var itemsView: UIView?
     var textFieldsView: FAAlertControllerTextFieldsView?
     var gradientView: FAAlertControllerGradientView?
     
