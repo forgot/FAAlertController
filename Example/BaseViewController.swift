@@ -9,7 +9,7 @@
 import UIKit
 import FAAlertController
 
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController, FAAlertControllerDelegate {
     
     
     var _title: String {
@@ -52,11 +52,19 @@ class BaseViewController: UIViewController {
     var faAlertAction5: FAAlertAction!
     var faAlertAction6: FAAlertAction!
     
-    @IBOutlet weak var uiControllerVersion: UIBarButtonItem!
-    @IBOutlet weak var faControllerVersion: UIBarButtonItem!
+    let segmentedControl = UISegmentedControl(items: ["Alert", "ActionSheet", "Picker"])
+    var alertButtons: [UIBarButtonItem]!
+    var actionSheetButtons: [UIBarButtonItem]!
+    var pickerButtons: [UIBarButtonItem]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupButtonArrays()
+        
+        segmentedControl.addTarget(self, action: #selector(togglePreferredType(sender:)), for: .valueChanged)
+        navigationItem.titleView = segmentedControl
+        segmentedControl.selectedSegmentIndex = 0
         
         navigationController?.isNavigationBarHidden = false
         navigationController?.isToolbarHidden = false
@@ -64,11 +72,6 @@ class BaseViewController: UIViewController {
         alertTitle = _title
         alertMessage = _message
         
-        uiControllerVersion.target = self
-        uiControllerVersion.action = #selector(showUIAlert)
-        faControllerVersion.target = self
-        faControllerVersion.action = #selector(showFAAlert)
-
         uiAlertAction1 = UIAlertAction(title: action1Title, style: .default, handler: { (action) in
             print("Doing something \(self.action1Title.lowercased())....")
         })
@@ -108,20 +111,35 @@ class BaseViewController: UIViewController {
         
     }
     
+    func setupButtonArrays() {
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let uiAlertButton = UIBarButtonItem(title: "UIAlert", style: .plain, target: self, action: #selector(showUIAlert))
+        let uiActionSheet = UIBarButtonItem(title: "UIActionSheet", style: .plain, target: self, action: #selector(showUIActionSheet))
+        let faAlertButton = UIBarButtonItem(title: "FAAlert", style: .plain, target: self, action: #selector(showFAAlert))
+        let faActionSheet = UIBarButtonItem(title: "FAActionSheet", style: .plain, target: self, action: #selector(showFAActionSheet))
+        let picker = UIBarButtonItem(title: "FAPicker", style: .plain, target: self, action: #selector(showPicker))
+
+        alertButtons = [flexSpace, uiAlertButton, flexSpace, faAlertButton, flexSpace]
+        actionSheetButtons = [flexSpace, uiActionSheet, flexSpace, faActionSheet, flexSpace]
+        pickerButtons = [flexSpace, picker, flexSpace]
+        
+        setToolbarItems(alertButtons, animated: false)
+        
+    }
+    
     @IBAction func togglePreferredType(sender: UISegmentedControl) {
         
-        if sender.selectedSegmentIndex == 0 {
-            uiControllerVersion.title = "UIAlert"
-            uiControllerVersion.action = #selector(showUIAlert)
-            faControllerVersion.title = "FAAlert"
-            faControllerVersion.action = #selector(showFAAlert)
-        } else {
-            uiControllerVersion.title = "UIActionSheet"
-            uiControllerVersion.action = #selector(showUIActionSheet)
-            faControllerVersion.title = "FAActionSheet"
-            faControllerVersion.action = #selector(showFAActionSheet)
+        switch sender.selectedSegmentIndex {
+        case 0:
+            setToolbarItems(alertButtons, animated: true)
+        case 1:
+            setToolbarItems(actionSheetButtons, animated: true)
+        case 2:
+            setToolbarItems(pickerButtons, animated: true)
+        default:
+            print("We shouldn't ever get here")
         }
-        
     }
     
     func showUIAlert() {
@@ -300,6 +318,39 @@ class BaseViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    func showPicker() {
+        // Create items
+        let itemOne = PickableItem(title: "Network One", subtitle: "A pretty good network")
+        let itemTwo = PickableItem(title: "Network Two", subtitle: "Almost as good as Network One")
+        let itemThree = PickableItem(title: "Network Three", subtitle: "Don't pick this one")
+        let items = [itemOne, itemTwo, itemThree]
+        
+        // Create Cancel Action
+        let cancel = FAAlertAction(title: "Cancel", style: .cancel)
+        
+        // Setup Alert
+        let title = "Select A Wireless Network"
+        let message = "This is a message"
+        let alert = FAAlertController(title: title, message: message, preferredStyle: .picker, appearance: appearanceStyle, items: items)
+        alert.addAction(cancel)
+        alert.delegate = self
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func didSelectItem(_ item: Pickable) {
+        print("Selected \(item)")
+    }
+    
     @IBAction func unwindToMainViewController(segue: UIStoryboardSegue) {}
+}
+
+class PickableItem: Pickable {
+    let title: String
+    let subtitle: String?
+    
+    init(title: String, subtitle: String?) {
+        self.title = title
+        self.subtitle = subtitle
+    }
 }
 

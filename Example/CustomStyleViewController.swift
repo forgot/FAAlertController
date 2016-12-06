@@ -103,6 +103,24 @@ class CustomStyleViewController: BaseViewController {
         present(alert, animated: true, completion: nil)
     }
 
+    override func showPicker() {
+        // Create items
+        let itemOne = PickableItem(title: "Network One", subtitle: "A pretty good network")
+        let itemTwo = PickableItem(title: "Network Two", subtitle: "Almost as good as Network One")
+        let itemThree = PickableItem(title: "Network Three", subtitle: "Don't pick this one")
+        let items = [itemOne, itemTwo, itemThree]
+        
+        // Create Cancel Action
+        let cancel = FAAlertAction(title: "Cancel", style: .cancel)
+        
+        // Setup Alert
+        let title = "A Custom Picker"
+        let alert = FAAlertController(title: title, message: nil, preferredStyle: .picker, appearance: appearanceStyle, items: items)
+        alert.delegate = self
+        alert.appearanceDelegate = faControllerAppearanceDelegate
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+    }
     
 }
 
@@ -155,5 +173,16 @@ struct ExampleAppearanceDelegate: FAAlertControllerAppearanceDelegate {
         return .lightGray
     }
 
+    var tableViewBackgroundColor: UIColor {
+        return .cyan
+    }
+    
+    var tableViewSeparatorColor: UIColor {
+        return .green
+    }
+    
+    var tableViewCellBackgroundColor: UIColor {
+        return .yellow
+    }
     
 }

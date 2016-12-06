@@ -85,7 +85,7 @@ class FAAlertControllerActionsView: UIScrollView {
             if !_actions.isEmpty {
                 if stackView.arrangedSubviews.count != ((_actions.count * 2) - 1) {
                     switch FAAlertControllerAppearanceManager.sharedInstance.preferredStyle {
-                    case .alert:
+                    case .alert, .picker:
                         stackView.axis = _actions.count <= 2 ? .horizontal : .vertical
                     case .actionSheet:
                         stackView.axis = _actions.count <= 1 ? .horizontal : .vertical
@@ -117,7 +117,7 @@ class FAAlertControllerActionsView: UIScrollView {
         configureStackView()
         if let _actions = actions {
             switch FAAlertControllerAppearanceManager.sharedInstance.preferredStyle {
-            case .alert:
+            case .alert, .picker:
                 minimumHeight.constant = _actions.count >= 3 ? 66 : 44
             case .actionSheet:
                 minimumHeight.constant = _actions.count >= 2 ? 85.5 : 57

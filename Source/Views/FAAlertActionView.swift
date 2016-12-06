@@ -21,7 +21,7 @@ class FAAlertActionView: UIView {
     var nextView: UIView?
     var _height: CGFloat {
         switch FAAlertControllerAppearanceManager.sharedInstance.preferredStyle {
-        case .alert:
+        case .alert, .picker:
             return 44
         case .actionSheet:
             return 57
@@ -72,7 +72,7 @@ class FAAlertActionView: UIView {
         switch action.style {
         case .default:
             switch  FAAlertControllerAppearanceManager.sharedInstance.preferredStyle {
-            case .alert:
+            case .alert, .picker:
                 font = isPreferred ? preferredFont : regularFont
             case.actionSheet:
                 let _font = UIFont.preferredFont(forTextStyle: UIFontTextStyle("CTFontRegularUsage"))
@@ -80,7 +80,7 @@ class FAAlertActionView: UIView {
             }
         case .cancel:
             switch FAAlertControllerAppearanceManager.sharedInstance.preferredStyle {
-            case .alert:
+            case .alert, .picker:
                 font = isPreferred ? preferredFont : regularFont
             case .actionSheet:
                 let _font = UIFont.preferredFont(forTextStyle: UIFontTextStyle("CTFontEmphasizedUsage"))
@@ -89,7 +89,7 @@ class FAAlertActionView: UIView {
             label.textColor = FAAlertControllerAppearanceManager.sharedInstance.cancelButtonTintColor
         case .destructive:
             switch FAAlertControllerAppearanceManager.sharedInstance.preferredStyle {
-            case .alert:
+            case .alert, .picker:
                 font = isPreferred ? preferredFont : regularFont
             case .actionSheet:
                 let _font = UIFont.preferredFont(forTextStyle: UIFontTextStyle("CTFontRegularUsage"))
