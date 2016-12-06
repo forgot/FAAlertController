@@ -114,7 +114,7 @@ class CustomStyleViewController: BaseViewController {
         let cancel = FAAlertAction(title: "Cancel", style: .cancel)
         
         // Setup Alert
-        let title = "Select A Wireless Network"
+        let title = "A Custom Picker"
         let alert = FAAlertController(title: title, message: nil, preferredStyle: .picker, appearance: appearanceStyle, items: items)
         alert.delegate = self
         alert.appearanceDelegate = faControllerAppearanceDelegate

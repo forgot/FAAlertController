@@ -330,7 +330,8 @@ class BaseViewController: UIViewController, FAAlertControllerDelegate {
         
         // Setup Alert
         let title = "Select A Wireless Network"
-        let alert = FAAlertController(title: title, message: nil, preferredStyle: .picker, appearance: appearanceStyle, items: items)
+        let message = "This is a message"
+        let alert = FAAlertController(title: title, message: message, preferredStyle: .picker, appearance: appearanceStyle, items: items)
         alert.addAction(cancel)
         alert.delegate = self
         present(alert, animated: true, completion: nil)
