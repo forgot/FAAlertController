@@ -23,6 +23,7 @@ protocol FAAlertControllerPickerDelegate {
 
 class FAAlertControllerPickerView: UITableView, UITableViewDataSource, UITableViewDelegate {
 
+    /// An array of items, conforming to `Pickable`, to be displayed by the alert
     var items: [Pickable]?
     
     init(items: [Pickable]?) {
@@ -70,14 +71,6 @@ class FAAlertControllerPickerView: UITableView, UITableViewDataSource, UITableVi
         return cell
      }
     
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
     
     // MARK: Table view delagate
     

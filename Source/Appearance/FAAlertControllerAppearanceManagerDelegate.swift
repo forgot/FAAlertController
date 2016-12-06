@@ -30,6 +30,10 @@ public protocol FAAlertControllerAppearanceDelegate {
     
     var separatorPrimaryColor: UIColor { get }
     var separatorSecondaryColor: UIColor { get }
+    
+    var tableViewBackgroundColor: UIColor { get }
+    var tableViewSeparatorColor: UIColor { get }
+    var tableViewCellBackgroundColor: UIColor { get }
 }
 
 public extension FAAlertControllerAppearanceDelegate {
