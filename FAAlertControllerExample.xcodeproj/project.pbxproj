@@ -362,6 +362,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5DB82A400AC96CA1B08896F4 /* Pods-FAAlertControllerExample.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7J8Z8QTYAE;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
@@ -376,6 +377,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9984B5AA122344E6B2DECFD0 /* Pods-FAAlertControllerExample.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7J8Z8QTYAE;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
