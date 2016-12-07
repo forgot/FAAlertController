@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "Jesse Cox" => "jesse@apprhythmia.com" }
   s.social_media_url   = "http://twitter.com/forgot"
-  s.platform     = :ios, "10.0"
+  s.platform     = :ios, "9.0"
   s.source       = { :git => "https://github.com/forgot/FAAlertController.git", :tag => "#{s.version}" }
   s.source_files  = "Source", "Source/**/*.{swift,h,m}"
 
