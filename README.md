@@ -11,8 +11,10 @@
 </p>
 
 -------
-
-![Screenshots](Screenshots/Screenshots.png)
+<p align="center">
+  <img src="Screenshots/Standard Screenshots.png" height="436">
+  <img src="Screenshots/Picker Screenshots.png" height="436">
+</p>
 
 ## Why?
 
@@ -24,6 +26,7 @@ The UIAlertController class is intended to be used as-is and does not support su
 
 - Painstakingly designed to mimic UIAlertController as closely as possible in both UI and API design.
 - Built in "dark mode".
+- A handy "picker" style alert, for when you need one.
 - Customizable via an appearance delegate.
 
 Additionally, a few unexpected behaviors were identified and fixed. For instance, did you know you can create an alert with a title, message, but *no actions*? While you'll still get an alert, there is no way to dismiss it, forcing your users to exit your app. With **FAAlertController**, configuring an alert or action sheet without any actions automatically allows a user to dismiss it by tapping outside the alert.
@@ -57,6 +60,28 @@ alert.addTextField { (textfield) in
     textfield.placeholder = "Type Something Here!"
 }
 ```
+
+## Creating A Picker
+
+A "picker" style alert takes an array of items conforming to `Pickable`, and selections are handled by a delegate conforming to `FAAlertControllerDelegate`.
+
+```swift
+func createPicker() {
+    let items = [itemOne, itemTwo, itemThree, itemFour, itemFive]
+    let picker = FAAlertController(title: "This Is A Picker", message: "Pick one of the options below!", preferredStyle: .picker, items: items)
+    picker.delegate = self
+
+    let cancel = FAAlertAction(title: "Cancel", style: .cancel)
+    picker.addAction(cancel)
+
+    present(picker, animated: true, completion: nil)
+}
+
+func didSelectItem(_ item: Pickable) {
+    print("Selected \(item)")
+}
+```
+
 
 ## Customization
 
