@@ -12,8 +12,8 @@
 
 -------
 <p align="center">
-  <img src="Screenshots/Standard Screenshots.png" height="436">
-  <img src="Screenshots/Picker Screenshots.png" height="436">
+  <img src="Screenshots/Standard Screenshots.png" height="296">
+  <img src="Screenshots/Picker Screenshots.png" height="296">
 </p>
 
 ## Why?
