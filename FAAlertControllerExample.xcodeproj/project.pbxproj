@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		306C0839232C1EC87993547B /* Pods_FAAlertControllerExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E647D2754276F664695D1E8B /* Pods_FAAlertControllerExample.framework */; };
 		6975A23D1DD3E540004F517D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6975A23C1DD3E540004F517D /* AppDelegate.swift */; };
 		6975A23F1DD3E540004F517D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6975A23E1DD3E540004F517D /* ViewController.swift */; };
 		6975A2421DD3E540004F517D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6975A2401DD3E540004F517D /* Main.storyboard */; };
@@ -17,10 +18,10 @@
 		6975A2571DD3E927004F517D /* DarkStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6975A2521DD3E927004F517D /* DarkStyleViewController.swift */; };
 		6975A2581DD3E927004F517D /* DefaultStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6975A2531DD3E927004F517D /* DefaultStyleViewController.swift */; };
 		6975A2591DD3E927004F517D /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6975A2541DD3E927004F517D /* InitialViewController.swift */; };
-		6975A25C1DD3E964004F517D /* FAAlertController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6975A25B1DD3E964004F517D /* FAAlertController.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5DB82A400AC96CA1B08896F4 /* Pods-FAAlertControllerExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FAAlertControllerExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FAAlertControllerExample/Pods-FAAlertControllerExample.debug.xcconfig"; sourceTree = "<group>"; };
 		6975A2391DD3E540004F517D /* FAAlertControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FAAlertControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6975A23C1DD3E540004F517D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = /Users/jessedcox/Apprhythmia/Libraries/iOS/Swift/FAAlertController/Example/AppDelegate.swift; sourceTree = "<absolute>"; };
 		6975A23E1DD3E540004F517D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = /Users/jessedcox/Apprhythmia/Libraries/iOS/Swift/FAAlertController/Example/ViewController.swift; sourceTree = "<absolute>"; };
@@ -34,6 +35,8 @@
 		6975A2531DD3E927004F517D /* DefaultStyleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultStyleViewController.swift; sourceTree = "<group>"; };
 		6975A2541DD3E927004F517D /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		6975A25B1DD3E964004F517D /* FAAlertController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FAAlertController.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/FAAlertController-glnvolqkmsapnuhfjnocfyymdiko/Build/Products/Debug-iphoneos/FAAlertController.framework"; sourceTree = "<group>"; };
+		9984B5AA122344E6B2DECFD0 /* Pods-FAAlertControllerExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FAAlertControllerExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-FAAlertControllerExample/Pods-FAAlertControllerExample.release.xcconfig"; sourceTree = "<group>"; };
+		E647D2754276F664695D1E8B /* Pods_FAAlertControllerExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FAAlertControllerExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6975A25C1DD3E964004F517D /* FAAlertController.framework in Frameworks */,
+				306C0839232C1EC87993547B /* Pods_FAAlertControllerExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +57,7 @@
 				6975A23B1DD3E540004F517D /* Example */,
 				6975A23A1DD3E540004F517D /* Products */,
 				6975A25A1DD3E964004F517D /* Frameworks */,
+				7441E0DD12BDEBDE906EE7CD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,8 +93,18 @@
 			isa = PBXGroup;
 			children = (
 				6975A25B1DD3E964004F517D /* FAAlertController.framework */,
+				E647D2754276F664695D1E8B /* Pods_FAAlertControllerExample.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7441E0DD12BDEBDE906EE7CD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5DB82A400AC96CA1B08896F4 /* Pods-FAAlertControllerExample.debug.xcconfig */,
+				9984B5AA122344E6B2DECFD0 /* Pods-FAAlertControllerExample.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -100,9 +114,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6975A24B1DD3E540004F517D /* Build configuration list for PBXNativeTarget "FAAlertControllerExample" */;
 			buildPhases = (
+				5DA96DFAC1B7738B783E54DF /* [CP] Check Pods Manifest.lock */,
 				6975A2351DD3E540004F517D /* Sources */,
 				6975A2361DD3E540004F517D /* Frameworks */,
 				6975A2371DD3E540004F517D /* Resources */,
+				459E433C3FEB5A1531F2798B /* [CP] Embed Pods Frameworks */,
+				51E611D0E8CDBF5CDEF6F296 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -120,7 +137,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Apprhythmia LLC";
 				TargetAttributes = {
 					6975A2381DD3E540004F517D = {
@@ -160,6 +177,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		459E433C3FEB5A1531F2798B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FAAlertControllerExample/Pods-FAAlertControllerExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		51E611D0E8CDBF5CDEF6F296 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FAAlertControllerExample/Pods-FAAlertControllerExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5DA96DFAC1B7738B783E54DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6975A2351DD3E540004F517D /* Sources */ = {
@@ -216,6 +281,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -266,6 +332,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -293,7 +360,9 @@
 		};
 		6975A24C1DD3E540004F517D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DB82A400AC96CA1B08896F4 /* Pods-FAAlertControllerExample.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7J8Z8QTYAE;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
@@ -306,7 +375,9 @@
 		};
 		6975A24D1DD3E540004F517D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9984B5AA122344E6B2DECFD0 /* Pods-FAAlertControllerExample.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7J8Z8QTYAE;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";

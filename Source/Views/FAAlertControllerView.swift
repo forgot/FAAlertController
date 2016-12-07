@@ -14,6 +14,7 @@ class FAAlertControllerView: UIView {
     var title: String?
     var message: String?
     var textFields: [UITextField]?
+    var items: [Pickable]?
     var actions: [FAAlertAction]
     var preferredAction: FAAlertAction?
     var cancelAction: FAAlertAction?
@@ -25,11 +26,12 @@ class FAAlertControllerView: UIView {
     
     // MARK: View Lifecycle
     
-    init(title: String?, message: String?, textFields: [UITextField]?, actions: [FAAlertAction]?, preferredAction: FAAlertAction?) {
+    init(title: String?, message: String?, textFields: [UITextField]?, actions: [FAAlertAction]?, preferredAction: FAAlertAction?, items: [Pickable]? = nil) {
         
         self.title = title
         self.message = message
         self.textFields = textFields
+        self.items = items
         self.actions = actions == nil ? [FAAlertAction]() : actions!
         self.preferredAction = preferredAction
         super.init(frame: .zero)
@@ -42,6 +44,8 @@ class FAAlertControllerView: UIView {
             configureAlert()
         case .actionSheet:
             configureActionSheet()
+        case .picker:
+            configurePicker()
         }
     }
     
@@ -181,10 +185,63 @@ class FAAlertControllerView: UIView {
         layoutIfNeeded()
         
     }
+    
+    func configurePicker() {
+        
+        // Create the alert view
+        interfaceView = FAAlertControllerInterfaceView()
+        
+        // Create and add the header view
+        let headerView = FAAlertControllerHeaderView()
+        headerView.title = title
+        headerView.message = message
+        headerView.items = items
+        headerView.prepareForLayout()
+        headerView.layoutIfNeeded()
+        interfaceView.stack.addArrangedSubview(headerView)
+        self.headerView = headerView
+        
+        
+        // Create and add the actions view
+        if !actions.isEmpty {
+            
+            // Create and add the separator view
+            let separatorView = FAAlertControllerHorizontalSeparatorView()
+            interfaceView.stack.addArrangedSubview(separatorView)
+            
+            let actionsView = FAAlertControllerActionsView()
+            actionsView.actions = actions
+            actionsView.preferredAction = preferredAction
+            actionsView.cancelAction = cancelAction
+            actionsView.prepareForLayout()
+            actionsView.layoutIfNeeded()
+            interfaceView.stack.addArrangedSubview(actionsView)
+            self.actionsView = actionsView
+            
+        } else { // Add default cancel action
+            actions = [FAAlertAction(title: "Cancel", style: .cancel, handler: nil)]
+        }
+        
+        interfaceView.stack.layoutIfNeeded()
+        
+        addSubview(interfaceView)
+        
+        // Setup constraints
+        interfaceView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        interfaceView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        widthAnchor.constraint(equalTo: interfaceView.widthAnchor).isActive = true
+        heightAnchor.constraint(equalTo: interfaceView.heightAnchor).isActive = true
+        let constraint = headerView.heightAnchor.constraint(equalTo: interfaceView.heightAnchor, multiplier: 1.5)
+        constraint.priority = 249
+        addConstraint(constraint)
+        constraint.isActive = true
+        
+    }
         
     /// Prepares the array of FAAlertAction items by identifying the preferredAction and cancelAction, if any, and sorting the array accordingly.
     func prepareActions() {
         
+        // Loops through the actions checking for any with a `.cancel` style, then moves it to the end of the actions array. Additionally, it sets the identified cancel action, if any, to the preferred action if no other preferred action has been set.
         for action in actions {
             if action.style == .cancel {
                 guard let index = actions.index(of: action) else {
@@ -197,12 +254,13 @@ class FAAlertControllerView: UIView {
             }
         }
         
-        if FAAlertControllerAppearanceManager.sharedInstance.preferredStyle == .alert {
+        if FAAlertControllerAppearanceManager.sharedInstance.preferredStyle == .alert || FAAlertControllerAppearanceManager.sharedInstance.preferredStyle == .picker {
             if let _cancelAction = cancelAction {
                 actions.append(_cancelAction)
             }
         }
         
         FAAlertControllerAppearanceManager.sharedInstance.numberOfActions = actions.count
+        
     }
 }

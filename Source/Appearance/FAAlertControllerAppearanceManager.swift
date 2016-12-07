@@ -20,6 +20,8 @@ final class FAAlertControllerAppearanceManager: Singleton {
     
     var globalDelegate: FAAlertControllerAppearanceDelegate?
     
+    var pickerDelegate: FAAlertControllerPickerDelegate?
+    
     var _delegate = FAAlertControllerAppearanceManagerInternalDelegate()
     
     var appearanceStyle: FAAlertControllerAppearanceStyle = .default
@@ -32,7 +34,7 @@ final class FAAlertControllerAppearanceManager: Singleton {
     
     var maxWidth: CGFloat {
         switch preferredStyle {
-        case .alert:
+        case .alert, .picker:
             return 270
         case .actionSheet:
             let bounds = UIScreen.main.bounds
@@ -196,6 +198,36 @@ final class FAAlertControllerAppearanceManager: Singleton {
             return _delegate.separatorSecondaryColor
         }
     }
+    
+    var tableViewBackgroundColor: UIColor {
+        if delegate != nil {
+            return delegate!.tableViewBackgroundColor
+        } else if globalDelegate != nil {
+            return globalDelegate!.tableViewBackgroundColor
+        }else {
+            return _delegate.tableViewBackgroundColor
+        }
+    }
+    var tableViewSeparatorColor: UIColor {
+        if delegate != nil {
+            return delegate!.tableViewSeparatorColor
+        } else if globalDelegate != nil {
+            return globalDelegate!.tableViewSeparatorColor
+        }else {
+            return _delegate.tableViewSeparatorColor
+        }
+    }
+    var tableViewCellBackgroundColor: UIColor {
+        if delegate != nil {
+            return delegate!.tableViewCellBackgroundColor
+        } else if globalDelegate != nil {
+            return globalDelegate!.tableViewCellBackgroundColor
+        }else {
+            return _delegate.tableViewCellBackgroundColor
+        }
+    }
+    
+    
     
     private init() {}
     

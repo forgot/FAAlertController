@@ -24,14 +24,17 @@ class FAAlertControllerPresentationController: UIPresentationController {
     }
     
     override func presentationTransitionWillBegin() {
+        
         // Get critical information about the presentation.
         guard let containerView = self.containerView else {
             preconditionFailure("The container view was not found")
         }
-        
+        // Cast `self.presentedViewController` to FAAlertController
         let presentedViewController = self.presentedViewController as! FAAlertController
+        // Set the target for the backdrop (so it knows which view to image from)
         (presentedView as! FAAlertControllerView).interfaceView.backdropView?.backdrop.target = presentingViewController.view
         
+        // If there are no actions/cancelAction, enable tap-to-dismiss on the dimmingView
         if presentedViewController.actions.isEmpty || (presentedViewController.preferredStyle == .actionSheet && (presentedView as! FAAlertControllerView).cancelAction != nil) {
             let tap = UITapGestureRecognizer(target: presentedViewController, action: #selector(presentedViewController.dismiss(_:)))
             dimmingView.addGestureRecognizer(tap)
@@ -46,21 +49,21 @@ class FAAlertControllerPresentationController: UIPresentationController {
         // Insert the dimming view below everything else.
         containerView.addSubview(dimmingView)
         
-        // Setup the layout views
+        // Configure the layout views, and add them to the containerView
         layoutView.translatesAutoresizingMaskIntoConstraints = false
-        keyboardLayoutAlignmentView.translatesAutoresizingMaskIntoConstraints = false
-        
         layoutView.isUserInteractionEnabled = false
+        keyboardLayoutAlignmentView.translatesAutoresizingMaskIntoConstraints = false
         keyboardLayoutAlignmentView.isUserInteractionEnabled = false
-        
         containerView.addSubview(layoutView)
         containerView.addSubview(keyboardLayoutAlignmentView)
-        
+
+        // Setup constraints
+        // Layout View Constraints
         layoutView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         layoutView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
         layoutView.widthAnchor.constraint(equalTo: containerView.widthAnchor).isActive = true
         layoutView.bottomAnchor.constraint(equalTo: keyboardLayoutAlignmentView.topAnchor).isActive = true
-        
+        // Keyboard Alignment View Constraints
         keyboardLayoutAlignmentView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         keyboardLayoutAlignmentView.widthAnchor.constraint(equalTo: containerView.widthAnchor).isActive = true
         keyboardLayoutAlignmentView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
@@ -68,6 +71,7 @@ class FAAlertControllerPresentationController: UIPresentationController {
         keyboardLayoutAlignmentViewHeightConstraint = keyboardLayoutAlignmentView.heightAnchor.constraint(equalToConstant: keyboardLayoutAlignmentViewHeightConstraintConstant)
         keyboardLayoutAlignmentViewHeightConstraint!.isActive = true
         
+        // Start listening for keyboard presentation/dismissal notifications
         NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard(notification:)), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard(notification:)), name: .UIKeyboardWillHide, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(fixTextField(notification:)), name: .UITextFieldTextDidEndEditing, object: nil)
@@ -75,12 +79,15 @@ class FAAlertControllerPresentationController: UIPresentationController {
         // Insert the layout views above the dimming view
         containerView.layoutIfNeeded()
         
-        // Set up the animations for fading in the dimming view.
+        // The view should now "appear" as it will after the transition
+        
         if let coordinator = presentedViewController.transitionCoordinator {
+            // Set up the animations for fading in the dimming view.
             coordinator.animate(alongsideTransition: { (context) in
                 self.dimmingView.alpha = 1.0
                 self.presentingViewController.view.tintAdjustmentMode = .dimmed
             }) { finished in
+                // After the custom transition has finished
                 if let arrangedSubviews = (self.presentedView as! FAAlertControllerView).actionsView?.stackView.arrangedSubviews {
                     for view in arrangedSubviews {
                         if view is FAAlertActionView {
@@ -123,8 +130,11 @@ class FAAlertControllerPresentationController: UIPresentationController {
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         super.willTransition(to: newCollection, with: coordinator)
+        // Get a pointer to the containerView's constraints
         let _constraints = containerView!.constraints
+        // Check that the preferredStyle is `.alert`
         if FAAlertControllerAppearanceManager.sharedInstance.preferredStyle == .alert {
+            // Loop through the constraints and adjust as necessary
             for constraint in _constraints {
                 if constraint.firstItem as? NSObject == presentedView {
                     if newCollection.verticalSizeClass == .regular {
@@ -145,6 +155,7 @@ class FAAlertControllerPresentationController: UIPresentationController {
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print("Transitioning to size: \(size) with coordinator: \(coordinator)")
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: { (context) in
             self.presentedView?.layoutIfNeeded()

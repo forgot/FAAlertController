@@ -13,6 +13,7 @@ protocol FAAlertControllerHeaderViewDataSource {
     var title: String? { get set }
     var message: String? { get set }
     var textFields: [UITextField]? { get set }
+    var items: [Pickable]? { get set }
 }
 
 protocol FAAlertControllerHeaderViewLayoutDataSource {
@@ -46,6 +47,8 @@ class FAAlertControllerHeaderView: UIScrollView {
     
     var title: String?
     var message: String?
+    var items: [Pickable]?
+    var pickerDelegate: FAAlertControllerDelegate?
     var textFields: [UITextField]?
     var stackViewSpacing: CGFloat {
         switch FAAlertControllerAppearanceManager.sharedInstance.preferredStyle {
@@ -53,13 +56,17 @@ class FAAlertControllerHeaderView: UIScrollView {
             return 3.0
         case .actionSheet:
             return 12.0
+        case .picker:
+            return 20
         }
     }
     
     let layoutView = UIView(frame: .zero)
-    let stackView = UIStackView(arrangedSubviews: [UIView]())
+    let primaryStackView = UIStackView(arrangedSubviews: [UIView]())
+    var labelStackView: UIStackView?
     var titleLabel: UILabel?
     var messageLabel: UILabel?
+    var itemsView: UIView?
     var textFieldsView: FAAlertControllerTextFieldsView?
     var gradientView: FAAlertControllerGradientView?
     
@@ -67,10 +74,10 @@ class FAAlertControllerHeaderView: UIScrollView {
     var stackViewBottomConstraint: NSLayoutConstraint?
     var stackViewTopConstraintConstant: CGFloat {
         switch FAAlertControllerAppearanceManager.sharedInstance.preferredStyle {
-        case .alert:
-            return stackView.arrangedSubviews.isEmpty ? 0 : -20
+        case .alert, .picker:
+            return primaryStackView.arrangedSubviews.isEmpty ? 0 : -20
         case .actionSheet:
-            return stackView.arrangedSubviews.isEmpty ? 0 : -14.5
+            return primaryStackView.arrangedSubviews.isEmpty ? 0 : -14.5
         }
     }
     var stackViewBottomConstraintConstant: CGFloat {
@@ -83,16 +90,18 @@ class FAAlertControllerHeaderView: UIScrollView {
                     return 20.5
                 }
             } else {
-                return stackView.arrangedSubviews.isEmpty ? 0 : 20.5
+                return primaryStackView.arrangedSubviews.isEmpty ? 0 : 20.5
             }
         case .actionSheet:
-            if stackView.arrangedSubviews.isEmpty {
+            if primaryStackView.arrangedSubviews.isEmpty {
                 return 0
             } else if FAAlertControllerAppearanceManager.sharedInstance.numberOfActions > 0 {
                 return 24.5
             } else {
                 return 14
             }
+        case .picker:
+            return 0
         }
     }
     
@@ -101,7 +110,7 @@ class FAAlertControllerHeaderView: UIScrollView {
     }
     var _titleFontSize: CGFloat {
         switch FAAlertControllerAppearanceManager.sharedInstance.preferredStyle {
-        case .alert:
+        case .alert, .picker:
             return 17
         case .actionSheet:
             return 13
@@ -126,38 +135,82 @@ class FAAlertControllerHeaderView: UIScrollView {
         translatesAutoresizingMaskIntoConstraints = false
         widthAnchor.constraint(equalToConstant: _maxWidth).isActive = true
         
+        // This is the primary "content view" for the scroll view
+        let contentView = UIView(frame: .zero)
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(contentView)
+        contentView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        contentView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        contentView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        contentView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        contentView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        
+        // This view is used to layout the other subviews
         layoutView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(layoutView)
+        
+        contentView.addSubview(layoutView)
+        
         let constraint = heightAnchor.constraint(equalTo: layoutView.heightAnchor)
         constraint.priority = 750
         constraint.isActive = true
-        layoutView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-        layoutView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
+        
+        let margin: CGFloat = FAAlertControllerAppearanceManager.sharedInstance.preferredStyle == .picker ? 0 : 16
+        
+        layoutView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin).isActive = true
+        layoutView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin).isActive = true
         layoutView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         layoutView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.alignment = .fill
-        stackView.distribution = .fill
-        stackView.spacing = stackViewSpacing
-        layoutView.addSubview(stackView)
-        stackView.widthAnchor.constraint(equalTo: layoutView.widthAnchor).isActive = true
-        stackView.centerXAnchor.constraint(equalTo: layoutView.centerXAnchor).isActive = true
-        stackViewTopConstraint = layoutView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: stackViewTopConstraintConstant)
-        stackViewBottomConstraint = layoutView.bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: stackViewBottomConstraintConstant)
+        // This view is used to arrange the other subviews
+        primaryStackView.translatesAutoresizingMaskIntoConstraints = false
+        primaryStackView.axis = .vertical
+        primaryStackView.alignment = .center
+        primaryStackView.distribution = .fill
+        primaryStackView.spacing = stackViewSpacing
+        layoutView.addSubview(primaryStackView)
+        
+        primaryStackView.widthAnchor.constraint(equalTo: layoutView.widthAnchor).isActive = true
+        primaryStackView.centerXAnchor.constraint(equalTo: layoutView.centerXAnchor).isActive = true
+        stackViewTopConstraint = layoutView.topAnchor.constraint(equalTo: primaryStackView.topAnchor, constant: stackViewTopConstraintConstant)
+        stackViewBottomConstraint = layoutView.bottomAnchor.constraint(equalTo: primaryStackView.bottomAnchor, constant: stackViewBottomConstraintConstant)
         
         stackViewTopConstraint!.isActive = true
         stackViewBottomConstraint!.isActive = true
+        
+        // If `preferredStyle == .picker`, then setup an additional stackview to place the title and message labels in
+        if FAAlertControllerAppearanceManager.sharedInstance.preferredStyle == .picker {
+            
+            let _layoutView = UIView(frame: .zero)
+            _layoutView.translatesAutoresizingMaskIntoConstraints = false
+            primaryStackView.addArrangedSubview(_layoutView)
+            _layoutView.leadingAnchor.constraint(equalTo: primaryStackView.leadingAnchor, constant: 16).isActive = true
+            _layoutView.trailingAnchor.constraint(equalTo: primaryStackView.trailingAnchor, constant: -16).isActive = true
+            
+            labelStackView = UIStackView(arrangedSubviews: [UIView]())
+            labelStackView?.axis = .vertical
+            labelStackView?.translatesAutoresizingMaskIntoConstraints = false
+            labelStackView?.spacing = 3.0
+            _layoutView.addSubview(labelStackView!)
+            
+            labelStackView?.leadingAnchor.constraint(equalTo: _layoutView.leadingAnchor).isActive = true
+            labelStackView?.trailingAnchor.constraint(equalTo: _layoutView.trailingAnchor).isActive = true
+            labelStackView?.topAnchor.constraint(equalTo: _layoutView.topAnchor).isActive = true
+            labelStackView?.bottomAnchor.constraint(equalTo: _layoutView.bottomAnchor).isActive = true
+        }
     }
     
     override func layoutSubviews() {
+        
         if gradientView == nil {
             gradientView = FAAlertControllerGradientView(frame: CGRect(x: 0, y: frame.maxY - 2, width: frame.width, height: 2))
             addSubview(gradientView!)
             gradientView?.alpha = 0.0
         }
+        
         super.layoutSubviews()
+        
         contentSize = CGSize(width: frame.width, height: layoutView.frame.height)
         if layoutView.frame.height > frame.height {
             gradientView?.alpha = 1.0
@@ -166,6 +219,7 @@ class FAAlertControllerHeaderView: UIScrollView {
             gradientView!.removeFromSuperview()
             gradientView = nil
         }
+        
     }
     
     override func updateConstraints() {
@@ -174,30 +228,63 @@ class FAAlertControllerHeaderView: UIScrollView {
         stackViewBottomConstraint?.constant = stackViewBottomConstraintConstant
     }
     
+    
+    /// Creates the supplemental views, and adds them to the stackview
     func prepareForLayout() {
+        
         if titleLabel == nil {
             if let _title = title {
                 let color = FAAlertControllerAppearanceManager.sharedInstance.titleTextColor
                 titleLabel = titleLabel(withText: _title, color: color)
-                stackView.addArrangedSubview(titleLabel!)
+                if FAAlertControllerAppearanceManager.sharedInstance.preferredStyle == .picker {
+                    guard labelStackView != nil else {
+                        fatalError("The labelStackView should not be nil")
+                    }
+                    labelStackView!.addArrangedSubview(titleLabel!)
+                } else {
+                    primaryStackView.addArrangedSubview(titleLabel!)
+                }
                 setNeedsUpdateConstraints()
             }
         }
+        
         if messageLabel == nil {
             if let _message = message {
                 let color = FAAlertControllerAppearanceManager.sharedInstance.messageTextColor
                 messageLabel = messageLabel(withText: _message, color: color)
-                stackView.addArrangedSubview(messageLabel!)
+                if FAAlertControllerAppearanceManager.sharedInstance.preferredStyle == .picker {
+                    guard labelStackView != nil else {
+                        fatalError("The labelStackView should not be nil")
+                    }
+                    labelStackView!.addArrangedSubview(messageLabel!)
+                } else {
+                    primaryStackView.addArrangedSubview(messageLabel!)
+                }
                 setNeedsUpdateConstraints()
             }
         }
+        
+        if itemsView == nil {
+            if let _items = items {
+                let _itemsView = FAAlertControllerPickerView(items: _items)
+                itemsView = _itemsView
+                primaryStackView.addArrangedSubview(itemsView!)
+                itemsView!.leadingAnchor.constraint(equalTo: primaryStackView.leadingAnchor).isActive = true
+                itemsView!.trailingAnchor.constraint(equalTo: primaryStackView.trailingAnchor).isActive = true
+                setNeedsUpdateConstraints()
+            }
+        }
+        
         if textFieldsView == nil {
             if let _textFields = textFields {
                 textFieldsView = FAAlertControllerTextFieldsView(withTextFields: _textFields)
-                stackView.addArrangedSubview(textFieldsView!)
+                primaryStackView.addArrangedSubview(textFieldsView!)
+                textFieldsView!.leadingAnchor.constraint(equalTo: primaryStackView.leadingAnchor).isActive = true
+                textFieldsView!.leadingAnchor.constraint(equalTo: primaryStackView.leadingAnchor).isActive = true
                 setNeedsUpdateConstraints()
             }
         }
+        
     }
     
     func createLabel() -> UILabel {
@@ -214,7 +301,7 @@ class FAAlertControllerHeaderView: UIScrollView {
     func titleLabel(withText text: String, color: UIColor) -> UILabel {
         var font: UIFont? = nil
         switch FAAlertControllerAppearanceManager.sharedInstance.preferredStyle {
-        case .alert:
+        case .alert, .picker:
             font = UIFont.preferredFont(forTextStyle: .headline)
         case .actionSheet:
             let textStyle = UIFontTextStyle("UICTFontTextStyleEmphasizedFootnote")
@@ -231,7 +318,7 @@ class FAAlertControllerHeaderView: UIScrollView {
     func messageLabel(withText text: String, color: UIColor) -> UILabel {
         var font: UIFont? = nil
         switch FAAlertControllerAppearanceManager.sharedInstance.preferredStyle {
-        case .alert:
+        case .alert, .picker:
             let textStyle = UIFontTextStyle("UICTFontTextStyleShortFootnote")
             font = UIFont.preferredFont(forTextStyle: textStyle)
         case .actionSheet:

@@ -17,6 +17,10 @@ public enum FAAlertControllerStyle {
     ///
     /// Use an action sheet to present the user with a set of alternatives for how to proceed with a given task. You can also use this style to prompt the user to confirm a potentially dangerous action.
     case actionSheet
+    /// An alert containing a list in the form of a `UITableView`
+    ///
+    /// Use a picker to present the user with a list of possible choices for how to proceed with a given task.
+    case picker
 }
 
 
@@ -28,9 +32,13 @@ public enum FAAlertControllerAppearanceStyle {
     case dark
 }
 
+/// Adopted by types wishing to handle item selection in a `.picker` style alert
+public protocol FAAlertControllerDelegate {
+    func didSelectItem(_ item: Pickable)
+}
 
 /// A FAAlertController object displays an alert message to the user. This class replaces the UIController class for displaying alerts. After configuring the alert controller with the actions and style you want, present it using the present(_:animated:completion:) method.
-public class FAAlertController: UIViewController, FAAlertActionDelegate {
+public class FAAlertController: UIViewController, FAAlertActionDelegate, FAAlertControllerPickerDelegate {
     
     // MARK: Public Properties
     
@@ -94,6 +102,11 @@ public class FAAlertController: UIViewController, FAAlertActionDelegate {
     /// Use this property to access the text fields displayed by the alert. The text fields are in the order in which you added them to the alert controller. This order also corresponds to the order in which they are displayed in the alert.
     public var textFields: [UITextField]?
     
+    // The array of objects to be displayed in the textfield of a `picker` type alert.
+    //
+    // Use this property to access the objects displayed in the tableview of the alert.
+    public var items: [Pickable]?
+    
     /// The appearance of the alert controller
     ///
     /// The value of this property is set to the value you specified in the `init(title:message:preferredStyle:appearance:)` method. This value determines how the appearance of the user interface when the alert is displayed on screen.
@@ -121,7 +134,21 @@ public class FAAlertController: UIViewController, FAAlertActionDelegate {
         }
     }
     
+    /// An optional closure to execute after the presentation finishes. This block has no return value and takes no parameters. You may specify `nil` for this parameter.
     public var completionHandler: (() -> ())?
+    
+    /// The object that acts as the delegate of the alert when it's style is `.picker`.
+    ///
+    /// This property is ignored when alert's style is anything other than `.picker`.
+    public var delegate: FAAlertControllerDelegate? {
+        didSet {
+            if delegate != nil {
+                FAAlertControllerAppearanceManager.sharedInstance.pickerDelegate = self
+            } else {
+                FAAlertControllerAppearanceManager.sharedInstance.pickerDelegate = nil
+            }
+        }
+    }
     
     // MARK: Internal Properties
     var alertView: FAAlertControllerView?
@@ -138,11 +165,12 @@ public class FAAlertController: UIViewController, FAAlertActionDelegate {
     /// - parameter appearance:     The appearance of the alert controller. Use this parameter to cinfigure the alert controller with default (light) or dark appearance. The default value of this property is `FAAlertControllerAppearanceStyle.default`.
     ///
     /// - returns: An initialized alert controller object.
-    public init(title: String?, message: String?, preferredStyle: FAAlertControllerStyle, appearance: FAAlertControllerAppearanceStyle = .default) {
+    public init(title: String?, message: String?, preferredStyle: FAAlertControllerStyle, appearance: FAAlertControllerAppearanceStyle = .default, items: [Pickable]? = nil) {
         super.init(nibName: nil, bundle: nil)
         self.preferredStyle = preferredStyle
         self.title = title
         self.message = message
+        self.items = items
         FAAlertControllerAppearanceManager.sharedInstance.appearanceStyle = appearance
         transitioningDelegate = self
         modalPresentationStyle = UIModalPresentationStyle.custom
@@ -157,7 +185,7 @@ public class FAAlertController: UIViewController, FAAlertActionDelegate {
     // MARK: View Lifecycle
     
     override public func loadView() {
-        alertView = FAAlertControllerView(title: title, message: message, textFields: textFields, actions: actions, preferredAction: preferredAction)
+        alertView = FAAlertControllerView(title: title, message: message, textFields: textFields, actions: actions, preferredAction: preferredAction, items: items)
         view = alertView!
     }
     
@@ -215,6 +243,8 @@ public class FAAlertController: UIViewController, FAAlertActionDelegate {
         action.delegate = self
     }
     
+    
+    /// Dismisses the alert, and calls the the completionHandler, if any.
     func didPerformAction(_ action: FAAlertAction) {
         dismiss(animated: true) {
             FAAlertControllerAppearanceManager.sharedInstance.delegate = nil
@@ -249,6 +279,36 @@ public class FAAlertController: UIViewController, FAAlertActionDelegate {
         }
         textFields!.append(textfield)
         configurationHandler!(textfield)
+    }
+    
+    
+    // MARK: Items
+    
+    
+    /// Called when an item was selected in a `.picker` style alert
+    ///
+    /// - Parameter item: The item that was selected
+    ///
+    /// This is an internal function used as a "springboard" to forward the selected item to the alert's delegate, if any.
+    func didSelectItem(_ item: Pickable) {
+        
+        if preferredStyle != .picker {
+            print("The `FAAlertControllerDelegate` protocol is only applicable to `FAAlertControllerStyle.picker`")
+        }
+        if delegate == nil {
+            print("No delegate was found. Adopt the `FAAlertControllerDelegate` protocol to handle the selected item.")
+        }
+
+        self.delegate?.didSelectItem(item)
+        
+        dismiss(animated: true) {
+            FAAlertControllerAppearanceManager.sharedInstance.delegate = nil
+            FAAlertControllerAppearanceManager.sharedInstance.pickerDelegate = nil
+            if self.completionHandler != nil {
+                self.completionHandler!()
+            }
+        }
+        
     }
     
     

@@ -28,6 +28,7 @@
 		69B0AC961DD3E16A00A90209 /* FAAlertControllerPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B0AC941DD3E16A00A90209 /* FAAlertControllerPresentationController.swift */; };
 		69B0AC9A1DD3E1A400A90209 /* FAAlertControllerAppearanceManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B0AC981DD3E1A400A90209 /* FAAlertControllerAppearanceManagerDelegate.swift */; };
 		69B0AC9B1DD3E1A400A90209 /* FAAlertControllerAppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B0AC991DD3E1A400A90209 /* FAAlertControllerAppearanceManager.swift */; };
+		69BCCA591DF472DA00A4BDE7 /* FAAlertControllerPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BCCA581DF472DA00A4BDE7 /* FAAlertControllerPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		69B0AC941DD3E16A00A90209 /* FAAlertControllerPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FAAlertControllerPresentationController.swift; path = "Source/Custom Transition and Presentation/FAAlertControllerPresentationController.swift"; sourceTree = "<group>"; };
 		69B0AC981DD3E1A400A90209 /* FAAlertControllerAppearanceManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FAAlertControllerAppearanceManagerDelegate.swift; path = Source/Appearance/FAAlertControllerAppearanceManagerDelegate.swift; sourceTree = "<group>"; };
 		69B0AC991DD3E1A400A90209 /* FAAlertControllerAppearanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FAAlertControllerAppearanceManager.swift; path = Source/Appearance/FAAlertControllerAppearanceManager.swift; sourceTree = "<group>"; };
+		69BCCA581DF472DA00A4BDE7 /* FAAlertControllerPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FAAlertControllerPickerView.swift; path = Source/Views/FAAlertControllerPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		69B0AC921DD3E14100A90209 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				69BCCA581DF472DA00A4BDE7 /* FAAlertControllerPickerView.swift */,
 				69B0AC821DD3E12600A90209 /* FAAlertControllerHeaderView.swift */,
 				69B0AC831DD3E12600A90209 /* FAAlertControllerView.swift */,
 				69B0AC841DD3E12600A90209 /* FAAlertControllerActionsView.swift */,
@@ -173,7 +176,7 @@
 		6914D0421DD3D7EA0006AAA7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Apprhythmia LLC";
 				TargetAttributes = {
 					6914D04A1DD3D7EA0006AAA7 = {
@@ -231,6 +234,7 @@
 				69B0AC9B1DD3E1A400A90209 /* FAAlertControllerAppearanceManager.swift in Sources */,
 				69B0AC8E1DD3E12600A90209 /* FAAlertActionView.swift in Sources */,
 				69B0AC901DD3E12600A90209 /* FAAlertControllerSeparatorView.swift in Sources */,
+				69BCCA591DF472DA00A4BDE7 /* FAAlertControllerPickerView.swift in Sources */,
 				69B0AC8C1DD3E12600A90209 /* FAAlertControllerActionsView.swift in Sources */,
 				69B0AC731DD3E00700A90209 /* Extensions.swift in Sources */,
 				69B0AC721DD3E00700A90209 /* HighlightView.swift in Sources */,
@@ -260,6 +264,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -313,6 +318,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
