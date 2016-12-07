@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "FAAlertController"
-  s.version      = "1.0.1"
+  s.version      = "1.1.1"
   s.summary      = "A drop in UIAlertController replacement, with a few tricks."
   s.homepage     = "https://github.com/forgot/FAAlertController"
   s.license      = { :type => "MIT", :file => "LICENSE" }
